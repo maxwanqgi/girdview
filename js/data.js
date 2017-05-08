@@ -3,459 +3,343 @@ var list = [
     {
         "name":"数字电视",
         "bg":"red",
+        "width":1120,
+        "height":560,
+        "rowCount":6,
+        "colCount":3,
+        "spacing":10,
 		"items":[
 			{
 				"name":"0",
 				"url":"#",
-				"bg":"#000"
+				"cls":"program",
+                "rowOver":3,
+                "colOver":2
 			},
 			{
 				"name":"1节目指南",
 				"url":"#",
-				"bg":"green"
+				"cls":"pro-post",
+                "rowOver":1,
+                "colOver":1
 			},
 			{
 				"name":"2节目搜索",
 				"url":"#",
-				"bg":"aquamarine"
+				"cls":"pro-search",
+                "rowOver":1,
+                "colOver":1
 			},
 			{
 				"name":"3节目编辑",
 				"url":"#",
-				"bg":"mediumpurple"
+				"cls":"pro-edit",
+                "rowOver":1,
+                "colOver":1
 			},
 			{
 				"name":"4电子邮件",
 				"url":"#",
-				"bg":"cornflowerblue"
+				"cls":"e-mail",
+                "rowOver":1,
+                "colOver":1
 			},
 			{
 				"name":"5",
 				"url":"#",
-				"bg":"url(img/timg.jpg)"
+				"cls":"add-pic",
+                "rowOver":2,
+                "colOver":2
 			},
 			{
 				"name":"6电视节目",
 				"url":"#",
-				"bg":"green"
+				"cls":"tv-pro",
+                "rowOver":2,
+                "colOver":1
 			},
 			{
 				"name":"7广播节目",
 				"url":"#",
-				"bg":"purple"
+				"cls":"tv-bro",
+                "rowOver":1,
+                "colOver":1
 			},
 			{
 				"name":"8条件接收",
 				"url":"#",
-				"bg":"orange"
+				"cls":"recive",
+                "rowOver":1,
+                "colOver":1
 			}
 		]
     },
     {
         "name":"互动点播",
         "bg":"green",
+        "width":1120,
+        "height":560,
+        "rowCount":6,
+        "colCount":3,
+        "spacing":10,
 		"items":[
 			{
 				"name":"0",
 				"url":"#",
-				"bg":"url(img/gitta.jpg)"
+				"cls":"kingdom",
+                "rowOver":2,
+                "colOver":3
 			},
 			{
 				"name":"1音乐+",
 				"url":"#",
-				"bg":"cyan"
+				"cls":"music",
+                "rowOver":2,
+                "colOver":1
 			},
 			{
 				"name":"2爱奇艺",
 				"url":"#",
-				"bg":"purple"
+				"cls":"aiqiyi",
+                "rowOver":2,
+                "colOver":1
 			},
 			{
 				"name":"3聚力",
 				"url":"#",
-				"bg":"oranged"
+				"cls":"pptv",
+                "rowOver":2,
+                "colOver":1
 			},
 			{
 				"name":"4凤凰新闻网",
 				"url":"#",
-				"bg":"blue"
+				"cls":"fh-news",
+                "rowOver":1,
+                "colOver":1
 			},
 			{
 				"name":"5有朋",
 				"url":"#",
-				"bg":"sienna"
+				"cls":"youpeng",
+                "rowOver":1,
+                "colOver":1
 			},
 			{
 				"name":"6优酷",
 				"url":"#",
-				"bg":"mediumpurple"
+				"cls":"youku",
+                "rowOver":2,
+                "colOver":1
 			},
 			{
 				"name":"7一方课堂",
 				"url":"#",
-				"bg":"greenyellow"
+				"cls":"yifang",
+                "rowOver":2,
+                "colOver":1
 			}
 		]
     },
     {
         "name":"我的应用",
         "bg":"orange",
+        "width":1120,
+        "height":560,
+        "rowCount":4,
+        "colCount":2,
+        "spacing":10,
 		"items":[
 			{
 				"name":"0我的应用",
 				"url":"#",
-				"bg":"cyan"
+				"cls":"myuse1",
+                "rowOver":1,
+                "colOver":1
 			},
 			{
 				"name":"1我的应用",
 				"url":"#",
-				"bg":"cyan"
+				"cls":"myuse2",
+                "rowOver":1,
+                "colOver":1
 			},
 			{
 				"name":"2我的应用",
 				"url":"#",
-				"bg":"cyan"
+				"cls":"myuse3",
+                "rowOver":1,
+                "colOver":1
 			},
 			{
 				"name":"3我的应用",
 				"url":"#",
-				"bg":"cyan"
+				"cls":"myuse4",
+                "rowOver":1,
+                "colOver":1
 			},
 			{
 				"name":"4我的应用",
 				"url":"#",
-				"bg":"cyan"
+				"cls":"myuse5",
+                "rowOver":1,
+                "colOver":1
 			},
 			{
 				"name":"5我的应用",
 				"url":"#",
-				"bg":"cyan"
+				"cls":"myuse6",
+                "rowOver":1,
+                "colOver":1
 			},
 			{
 				"name":"6我的应用",
 				"url":"#",
-				"bg":"cyan"
+				"cls":"myuse7",
+                "rowOver":1,
+                "colOver":1
 			},
 			{
 				"name":"7我的应用",
 				"url":"#",
-				"bg":"cyan"
+				"cls":"myuse8",
+                "rowOver":1,
+                "colOver":1
 			}
 		]
     },
     {
         "name":"用户中心",
         "bg":"purple",
+        "width":1120,
+        "height":560,
+        "rowCount":4,
+        "colCount":2,
+        "spacing":10,
 		"items":[
 			{
 				"name":"0用户中心",
 				"url":"#",
-				"bg":"peru"
+				"cls":"usermid1",
+                "rowOver":1,
+                "colOver":1
 			},
 			{
 				"name":"1用户中心",
 				"url":"#",
-				"bg":"peru"
+				"cls":"usermid2",
+                "rowOver":1,
+                "colOver":1
 			},
 			{
 				"name":"2用户中心",
 				"url":"#",
-				"bg":"peru"
+				"cls":"usermid3",
+                "rowOver":1,
+                "colOver":1
 			},
 			{
 				"name":"3用户中心",
 				"url":"#",
-				"bg":"peru"
+				"cls":"usermid4",
+                "rowOver":1,
+                "colOver":1
 			},
 			{
 				"name":"4用户中心",
 				"url":"#",
-				"bg":"peru"
+				"cls":"usermid5",
+                "rowOver":1,
+                "colOver":1
 			},
 			{
 				"name":"5用户中心",
 				"url":"#",
-				"bg":"peru"
+				"cls":"usermid6",
+                "rowOver":1,
+                "colOver":1
 			},
 			{
 				"name":"6用户中心",
 				"url":"#",
-				"bg":"peru"
+				"cls":"usermid7",
+                "rowOver":1,
+                "colOver":1
 			},
 			{
 				"name":"7用户中心",
 				"url":"#",
-				"bg":"peru"
+				"cls":"usermid8",
+                "rowOver":1,
+                "colOver":1
 			}
 		]
     },
     {
         "name":"系统设置",
         "bg":"yellow",
+        "width":1120,
+        "height":560,
+        "rowCount":4,
+        "colCount":2,
+        "spacing":10,
 		"items":[
 			{
 				"name":"0系统设置",
 				"url":"#",
-				"bg":"orange"
+				"cls":"sysset1",
+                "rowOver":1,
+                "colOver":1
 			},
 			{
 				"name":"1系统设置",
 				"url":"#",
-				"bg":"orange"
+				"cls":"sysset2",
+                "rowOver":1,
+                "colOver":1
 			},
 			{
 				"name":"2系统设置",
 				"url":"#",
-				"bg":"orange"
+				"cls":"sysset3",
+                "rowOver":1,
+                "colOver":1
 			},
 			{
 				"name":"3系统设置",
 				"url":"#",
-				"bg":"orange"
+				"cls":"sysset4",
+                "rowOver":1,
+                "colOver":1
 			},
 			{
 				"name":"4系统设置",
 				"url":"#",
-				"bg":"orange"
+				"cls":"sysset5",
+                "rowOver":1,
+                "colOver":1
 			},
 			{
 				"name":"5系统设置",
 				"url":"#",
-				"bg":"orange"
+				"cls":"sysset6",
+                "rowOver":1,
+                "colOver":1
 			},
 			{
 				"name":"6系统设置",
 				"url":"#",
-				"bg":"orange"
+				"cls":"sysset7",
+                "rowOver":1,
+                "colOver":1
 			},
 			{
 				"name":"7系统设置",
 				"url":"#",
-				"bg":"orange"
+				"cls":"sysset8",
+                "rowOver":1,
+                "colOver":1
 			}
 		]
     }
-]
-
-
-var listMenu0 = [
-		{
-			"name":"0",
-			"url":"#",
-			"bg":"#000"
-		},
-		{
-			"name":"1节目指南",
-			"url":"#",
-			"bg":"green"
-		},
-		{
-			"name":"2节目搜索",
-			"url":"#",
-			"bg":"aquamarine"
-		},
-		{
-			"name":"3节目编辑",
-			"url":"#",
-			"bg":"mediumpurple"
-		},
-		{
-			"name":"4电子邮件",
-			"url":"#",
-			"bg":"cornflowerblue"
-		},
-		{
-			"name":"5",
-			"url":"#",
-			"bg":"url(img/timg.jpg)"
-		},
-		{
-			"name":"6电视节目",
-			"url":"#",
-			"bg":"green"
-		},
-		{
-			"name":"7广播节目",
-			"url":"#",
-			"bg":"purple"
-		},
-		{
-			"name":"8条件接收",
-			"url":"#",
-			"bg":"orange"
-		}
-]
-
-
-var listMenu1 = [
-	{
-		"name":"0",
-		"url":"#",
-		"bg":"url(img/gitta.jpg)"
-	},
-	{
-		"name":"1音乐+",
-		"url":"#",
-		"bg":"cyan"
-	},
-	{
-		"name":"2爱奇艺",
-		"url":"#",
-		"bg":"purple"
-	},
-	{
-		"name":"3聚力",
-		"url":"#",
-		"bg":"oranged"
-	},
-	{
-		"name":"4凤凰新闻网",
-		"url":"#",
-		"bg":"blue"
-	},
-	{
-		"name":"5有朋",
-		"url":"#",
-		"bg":"sienna"
-	},
-	{
-		"name":"6优酷",
-		"url":"#",
-		"bg":"mediumpurple"
-	},
-	{
-		"name":"7一方课堂",
-		"url":"#",
-		"bg":"greenyellow"
-	}
-]
-
-var listMenu2 = [
-	{
-		"name":"0我的应用",
-		"url":"#",
-		"bg":"cyan"
-	},
-	{
-		"name":"1我的应用",
-		"url":"#",
-		"bg":"cyan"
-	},
-	{
-		"name":"2我的应用",
-		"url":"#",
-		"bg":"cyan"
-	},
-	{
-		"name":"3我的应用",
-		"url":"#",
-		"bg":"cyan"
-	},
-	{
-		"name":"4我的应用",
-		"url":"#",
-		"bg":"cyan"
-	},
-	{
-		"name":"5我的应用",
-		"url":"#",
-		"bg":"cyan"
-	},
-	{
-		"name":"6我的应用",
-		"url":"#",
-		"bg":"cyan"
-	},
-	{
-		"name":"7我的应用",
-		"url":"#",
-		"bg":"cyan"
-	}
-]
-
-var listMenu3 = [
-	{
-		"name":"0用户中心",
-		"url":"#",
-		"bg":"peru"
-	},
-	{
-		"name":"1用户中心",
-		"url":"#",
-		"bg":"peru"
-	},
-	{
-		"name":"2用户中心",
-		"url":"#",
-		"bg":"peru"
-	},
-	{
-		"name":"3用户中心",
-		"url":"#",
-		"bg":"peru"
-	},
-	{
-		"name":"4用户中心",
-		"url":"#",
-		"bg":"peru"
-	},
-	{
-		"name":"5用户中心",
-		"url":"#",
-		"bg":"peru"
-	},
-	{
-		"name":"6用户中心",
-		"url":"#",
-		"bg":"peru"
-	},
-	{
-		"name":"7用户中心",
-		"url":"#",
-		"bg":"peru"
-	}
-]
-
-
-var listMenu4 = [
-	{
-		"name":"0系统设置",
-		"url":"#",
-		"bg":"orange"
-	},
-	{
-		"name":"1系统设置",
-		"url":"#",
-		"bg":"orange"
-	},
-	{
-		"name":"2系统设置",
-		"url":"#",
-		"bg":"orange"
-	},
-	{
-		"name":"3系统设置",
-		"url":"#",
-		"bg":"orange"
-	},
-	{
-		"name":"4系统设置",
-		"url":"#",
-		"bg":"orange"
-	},
-	{
-		"name":"5系统设置",
-		"url":"#",
-		"bg":"orange"
-	},
-	{
-		"name":"6系统设置",
-		"url":"#",
-		"bg":"orange"
-	},
-	{
-		"name":"7系统设置",
-		"url":"#",
-		"bg":"orange"
-	}
 ]
