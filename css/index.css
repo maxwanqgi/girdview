@@ -64,72 +64,63 @@ body {
 #menu_wraper .menu-list0 .program {
 
 	background: #222222;
-	left: 10px;
-	top: 10px;
+
 }
 
 #menu_wraper .menu-list0 .pro-post {
 
 	background: green;
 	line-height: 150px;
-	left: 565px;
-	top: 10px;
+
 }
 
 #menu_wraper .menu-list0 .pro-search {
 	
 	background: aquamarine;
 	line-height: 150px;
-	left: 750px;
-	top: 10px;
+
 }
 
 #menu_wraper .menu-list0 .pro-edit {
 
 	background: mediumpurple;
 	line-height: 150px;
-	left: 935px;
-	top: 10px;
+	
 }
 
 #menu_wraper .menu-list0 .e-mail {
 	
 	background: cornflowerblue;
 	line-height: 160px;
-	left: 565px;
-	top: 170px;
+
 }
 
 #menu_wraper .menu-list0 .add-pic {
 	
 	background: url(../img/timg.jpg);
 	background-size: cover;
-	right: 10px;
-	top: 170px;
+	/*-webkit-box-reflect:below 5px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(0.4, transparent), to(white));*/
 }
 
 #menu_wraper .menu-list0 .tv-pro {
 	
 	background: green;
 	line-height: 150px;
-	left: 10px;
-	top: 330px;
+	/*-webkit-box-reflect:below 5px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(0.4, transparent), to(white));*/
 }
 
 #menu_wraper .menu-list0 .tv-bro {
 
 	background: purple;
 	line-height: 150px;
-	left: 380px;
-	top: 330px;
+	/*-webkit-box-reflect:below 5px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(0.4, transparent), to(white));*/
 }
 
 #menu_wraper .menu-list0 .recive {
 	
 	background: orange;
 	line-height: 150px;
-	left: 565px;
-	top: 330px;
+	/*-webkit-box-reflect:below 5px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(0.4, transparent), to(white));*/
 }
 
 #menu_wraper .menu-list1 div {
@@ -143,64 +134,56 @@ body {
 	
 	background: url(../img/gitta.jpg);
 	background-size: contain;
-	top: 10px;
-	left: 10px;
+
 }
 
 #menu_wraper .menu-list1 .music {
 	
 	line-height: 150px;
 	background: cyan;
-	left: 380px;
-	top: 10px;
+	
 }
 
 #menu_wraper .menu-list1 .aiqiyi {
 	
 	line-height: 150px;
 	background: purple;
-	left: 750px;
-	top: 10px;
+	
 }
 
 #menu_wraper .menu-list1 .pptv {
 	
 	line-height: 150px;
 	background: orangered;
-	left: 380px;
-	top: 170px;
+	
 }
 
 #menu_wraper .menu-list1 .fh-news {
 	
 	line-height: 150px;
 	background: blue;
-	left: 750px;
-	top: 170px;
+
 }
 
 #menu_wraper .menu-list1 .youpeng {
 
 	line-height: 150px;
 	background: sienna;
-	left: 935px;
-	top: 170px;
+	
 }
 
 #menu_wraper .menu-list1 .youku {
 
 	line-height: 150px;
 	background: mediumpurple;
-	left: 380px;
-	top: 330px;
+	
 }
 
 #menu_wraper .menu-list1 .yifang {
 	
 	line-height: 180px;
 	background: greenyellow;
-	left: 750px;
-	top: 330px;
+	
 }
 
 .menu-list2,
@@ -222,136 +205,21 @@ body {
 	text-align: center;
 	line-height: 230px;
 	color: #fff;
-	outline: none;
+
 }
 
-.menu-list2 div.myuse1 {
-	top: 10px;
-	left: 10px;
-}
-
-.menu-list2 div.myuse2 {
-	top: 10px;
-	left: 280px;
-}
-
-.menu-list2 div.myuse3 {
-	top: 10px;
-	left: 550px;
-}
-
-.menu-list2 div.myuse4 {
-	top: 10px;
-	left: 820px;
-}
-
-.menu-list2 div.myuse5 {
-	top: 250px;
-	left: 10px;
-}
-
-.menu-list2 div.myuse6 {
-	top: 250px;
-	left: 280px;
-}
-
-.menu-list2 div.myuse7 {
-	top: 250px;
-	left: 550px;
-}
-
-.menu-list2 div.myuse8 {
-	top: 250px;
-	left: 820px;
-}
 
 .menu-list3 div {
 	background: peru;
 }
 
-.menu-list3 div.usermid1 {
-	top: 10px;
-	left: 10px;
-}
 
-.menu-list3 div.usermid2 {
-	top: 10px;
-	left: 280px;
-}
-
-.menu-list3 div.usermid3 {
-	top: 10px;
-	left: 550px;
-}
-
-.menu-list3 div.usermid4 {
-	top: 10px;
-	left: 820px;
-}
-
-.menu-list3 div.usermid5 {
-	top: 250px;
-	left: 10px;
-}
-
-.menu-list3 div.usermid6 {
-	top: 250px;
-	left: 280px;
-}
-
-.menu-list3 div.usermid7 {
-	top: 250px;
-	left: 550px;
-}
-
-.menu-list3 div.usermid8 {
-	top: 250px;
-	left: 820px;
-}
 
 .menu-list4 div {
 	background: orange;
 }
 
-.menu-list4 div.sysset1 {
-	top: 10px;
-	left: 10px;
-}
 
-.menu-list4 div.sysset2 {
-	top: 10px;
-	left: 280px;
-}
-
-.menu-list4 div.sysset3 {
-	top: 10px;
-	left: 550px;
-}
-
-.menu-list4 div.sysset4 {
-	top: 10px;
-	left: 820px;
-}
-
-.menu-list4 div.sysset5 {
-	top: 250px;
-	left: 10px;
-}
-
-.menu-list4 div.sysset6 {
-	top: 250px;
-	left: 280px;
-}
-
-.menu-list4 div.sysset7 {
-	top: 250px;
-	left: 550px;
-}
-
-.menu-list4 div.sysset8 {
-	top: 250px;
-	left: 820px;
-}
 
 #menu_wraper .menu-list .focus-div{
 	display: none;

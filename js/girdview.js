@@ -1,7 +1,7 @@
 function View() {
 
 	this.div = null;
-
+	
 }
 
 View.prototype.getDiv = function() {
@@ -22,9 +22,28 @@ View.prototype.addClass = function(clsName) {
 	}
 };
 
+View.prototype.setVisible = function (visible) {
+	this.div.style.display = visible ? "block" : "none";
+}
+
+View.prototype.show = function () {
+	this.setVisible(true);
+};
+
+View.prototype.hide = function () {
+	this.setVisible(false);
+}
+
 View.prototype.getStyle = function(attr) {
 	if (typeof this.div === "object")
 		return getComputedStyle(this.div, false)[attr];
+}
+
+View.prototype.setSize = function (w,h) {
+	if(typeof this.div === "object") {
+		this.div.style.width = w + "px";
+		this.div.style.height = h + "px";
+	}
 }
 
 View.prototype.moveTo = function(l, r, t, b) {
@@ -54,6 +73,9 @@ function GridView(div, controller) {
 	this.selected = 0;
 	this.items = [];
 	this.div = div;
+	
+	this.isMenuMove = true;
+	this.isFocusMove = false;
 
 	this.render();
 }
@@ -112,37 +134,48 @@ GridView.prototype.render = function() {
 	var l = parseInt(this.getStyle("width"));
 	for (i = 0; i < menuCount; i++) {
 		items[i] = ctrl.getView(this, items[i], i);
-
 		items[i].moveTo(l, null, null, null);
 		items[i].addClass('menu-list' + i);
 	}
 	items[0].moveTo(0, null, null, null);
 }
 
-GridView.prototype.focusAniation = function() {
-
-};
-
-GridView.prototype.onkeyEvent = function(key, index) {
-	switch (key) {
-		case 37:
+GridView.prototype.onkeyEvent = function(key) {
+	
+	var isMenuMove = this.isMenuMove;
+	var isFocusMove = this.isFocusMove;
+	var index = this.index;
+	var i = 0;
+	if (key == 37) {
+		if (isMenuMove) {
 			this.moveToLeft();
-			break;
-		case 39:
+		}else if (isMenuMove == false && isFocusMove == true) {
+			this.items[index].setFocusPos();
+		}	
+	}
+	if (key == 39) {
+		if (isMenuMove) {
 			this.moveToRight();
-			break;
-		case 40:
-			//return Menuview.onkeyEvent;    //menuview ---> this.items[index];
-			//this.items[index].onkeyEvent(key);
-			//console.log(this.items[index])
-			break;
-		default:
-			break;
+		}else if (isMenuMove == false && isFocusMove == true) {
+			this.items[index].setFocusPos();
+		}	
+	}
+	if (key == 38) {
+		//this.items[index].setFocusPos()
+		this.items[index].setFocusHide();
+		this.isMenuMove = true;
+		this.isFocusMove = false;
+	}
+	if (key == 40) {
+		this.items[index].setFocusShow();
+		this.isMenuMove = false;
+		this.isFocusMove = true;
+		this.items[index].setFocusPos();
 	}
 };
 
 //每个菜单   父容器为gridview
-function MenuView(gridview, data, controller) {
+function MenuView(gridview, data) {
 	View.call(this);
 
 	this.spacing = data.spacing;
@@ -151,22 +184,16 @@ function MenuView(gridview, data, controller) {
 	var menuDiv = document.createElement("div");
 
 	menuDiv.className = "menu-list";
-	menuDiv.style.background = data.bg;
+	//menuDiv.style.background = data.bg;
 	menuDiv.style.width = data.width + "px";
 	menuDiv.style.height = data.height + "px";
 	menuDiv.style.webkitTransition = "left .3s linear"
 
-	this.gridview = gridview;
-
 	this.div = menuDiv;
 	this.divItems = [];
-	this.focusShow = false;
 
 	this.width = data.width;
 	this.height = data.height;
-
-	this.itemwidth = data.itemwidth;
-	this.itemheight = data.itemheight;
 
 	//行单元格数 * 列单元格数
 	this.rowCount = data.rowCount;
@@ -188,41 +215,44 @@ MenuView.prototype.render = function() {
 	var i;
 	var itemInfo = this.iteminfo;
 	var divItems = this.divItems;
-	for (i = 0; i < itemInfo.length; i++) {
+	for (i = 0; i < itemInfo.length; i ++) {
 		divItems[i] = new ItemView(this, itemInfo[i]);
-		//divItems[i].moveTo()
 	}
 };
 
-MenuView.prototype.setFocusVisible = function(focus) {
-
+MenuView.prototype.setFocusShow = function() {
+	this.focusView.show();
+	this.initFocus();
 };
 
-MenuView.prototype.setFocusPos = function() {
+MenuView.prototype.setFocusHide = function() {
+	this.focusView.hide();
+};
 
+MenuView.prototype.initFocus = function () {
+	var div = this.divItems[0];
+	var borderW = parseInt(this.focusView.getStyle("borderWidth"));
+	var l = div.left - borderW;      
+	var t = div.top - borderW;
+	var w = div.width;
+	var h = div.height;
+	
+	this.focusView.moveTo(l,null,t,null);
+	this.focusView.setSize(w,h)
+};
+
+MenuView.prototype.setFocusPos = function(i) {
+	
+	var focu_width = this.focusView.getStyle("width");
+	var focu_height = this.focusView.getStyle("height");
+	var focu_left = this.focusView.getStyle("left");
+	var focu_top = this.focusView.getStyle("top");
+	
+	console.log(focu_width + "++" + focu_height + "++" + focu_left + "++" + focu_top)
 }
 
-MenuView.prototype.onkeyEvent = function(key) {
-	var gridview = this.gridview;
-
-	switch (key) {
-		case 37: //left  边界返回girdview.onkeyEvent
-
-			break;
-		case 39: //right 边界返回girdview.onkeyEvent
-
-			break;
-		case 38: //top   边界返回girdview.onkeyEvent
-
-			break;
-		case 40: //down  焦点框最底部不在相应
-			break;
-		case 13: //enter
-			//	return this.divItems[index].onItemClicked();
-			break;
-		default:
-			break;
-	}
+MenuView.prototype.onKeyEvent = function () {
+	
 }
 
 //单个选项 or 色块   父容器为menuview
@@ -234,36 +264,40 @@ function ItemView(menuview, data) {
 	this.url = data.url;
 	this.txt = data.name;
 
-	//占据的单元格数。
-	this.rowOver = data.rowOver;
-	this.colOver = data.colOver;
-
+	//占据的单元格数
+	this.rowCover = data.rowCover;
+	this.colCover = data.colCover;
+	//占据单元格的开始位置
+	this.coverFromX = data.coverFromX;
+	this.coverFromY = data.coverFromY;
+	
 	var spacing = menuview.spacing;
 	var div = menuview.div;
 	var smalldiv = document.createElement("div");
 
 	var averageWidth = (menuview.width - (menuview.rowCount + 1) * spacing) / menuview.rowCount;
-	var averageHeight = Math.ceil((menuview.height - (menuview.colCount + 1) * spacing) / menuview.colCount - 25); //-25是为了底部剩余空间来添加倒影
+	var averageHeight = (menuview.height - (menuview.colCount + 1) * spacing) / menuview.colCount - 25; //-25是为了底部剩余空间来添加倒影
 
-	this.width = Math.ceil(averageWidth * this.rowOver + (this.rowOver - 1) * spacing);
-	this.height = Math.ceil(averageHeight * this.colOver + (this.colOver - 1) * spacing);
-
+	this.width = averageWidth * this.rowCover + (this.rowCover - 1) * spacing;
+	this.height = averageHeight * this.colCover + (this.colCover - 1) * spacing;
+	this.left = this.coverFromX * averageWidth + (this.coverFromX + 1) * spacing;
+	this.top = this.coverFromY * averageHeight + (this.coverFromY + 1) * spacing;
+	
 	smalldiv.className = this.cls;
 	smalldiv.innerHTML = this.txt;
-	smalldiv.style.width = this.width + "px";
-	smalldiv.style.height = this.height + "px";
 
 	this.div = smalldiv;
 
 	div.appendChild(smalldiv);
 
 	this.setPostion();
-}
+};
 
 ItemView.prototype = new View();
 
 ItemView.prototype.setPostion = function() {
-
+	this.moveTo(this.left,null,this.top,null)
+	this.setSize(this.width,this.height)
 }
 
 //确认
@@ -276,6 +310,8 @@ function FocusView(menuview) {
 	View.call(this);
 	var div = menuview.getDiv();
 	var focusDiv = document.createElement("div");
+	focusDiv.style.webkitTransitionDuration = "0.3s"
+	focusDiv.style.webkitTransitionTimingFunction = "linear"
 	focusDiv.className = "focus-div";
 	this.div = focusDiv;
 	div.appendChild(this.div);
@@ -283,11 +319,7 @@ function FocusView(menuview) {
 
 FocusView.prototype = new View();
 
-FocusView.prototype.setVisble = function(isShow) {
-	this.div.style = isShow ? "block" : "none";
-}
 
-//gridview控制器
 function Controller(viewConstructor, data) {
 	this.data = data;
 	//console.log(this.data);
@@ -311,7 +343,7 @@ Controller.prototype = {
 function page_init() {
 	var ctrl = new Controller(MenuView, list);
 	var gridview = new GridView(document.getElementById("menu_wraper"), ctrl);
-	console.log(gridview)
+	console.log(gridview);
 
 	document.onkeydown = function(e) {
 		var key = e.keyCode;

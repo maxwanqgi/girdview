@@ -7,70 +7,88 @@ var list = [
         "height":560,
         "rowCount":6,
         "colCount":3,
-        "spacing":10,
+        "spacing":5,
 		"items":[
 			{
-				"name":"0",
+				"name":"",
 				"url":"#",
 				"cls":"program",
-                "rowOver":3,
-                "colOver":2
+                "rowCover":3,
+                "colCover":2,
+                "coverFromX":0,
+                "coverFromY":0
 			},
 			{
 				"name":"1节目指南",
 				"url":"#",
 				"cls":"pro-post",
-                "rowOver":1,
-                "colOver":1
+                "rowCover":1,
+                "colCover":1,
+                "coverFromX":3,
+                "coverFromY":0
 			},
 			{
 				"name":"2节目搜索",
 				"url":"#",
 				"cls":"pro-search",
-                "rowOver":1,
-                "colOver":1
+                "rowCover":1,
+                "colCover":1,
+                "coverFromX":4,
+                "coverFromY":0
 			},
 			{
 				"name":"3节目编辑",
 				"url":"#",
 				"cls":"pro-edit",
-                "rowOver":1,
-                "colOver":1
+                "rowCover":1,
+                "colCover":1,
+                "coverFromX":5,
+                "coverFromY":0
 			},
 			{
 				"name":"4电子邮件",
 				"url":"#",
 				"cls":"e-mail",
-                "rowOver":1,
-                "colOver":1
+                "rowCover":1,
+                "colCover":1,
+                "coverFromX":3,
+                "coverFromY":1
 			},
 			{
-				"name":"5",
+				"name":"",
 				"url":"#",
 				"cls":"add-pic",
-                "rowOver":2,
-                "colOver":2
+                "rowCover":2,
+                "colCover":2,
+                "coverFromX":4,
+                "coverFromY":1
 			},
 			{
 				"name":"6电视节目",
 				"url":"#",
 				"cls":"tv-pro",
-                "rowOver":2,
-                "colOver":1
+                "rowCover":2,
+                "colCover":1,
+                "coverFromX":0,
+                "coverFromY":2
 			},
 			{
 				"name":"7广播节目",
 				"url":"#",
 				"cls":"tv-bro",
-                "rowOver":1,
-                "colOver":1
+                "rowCover":1,
+                "colCover":1,
+                "coverFromX":2,
+                "coverFromY":2
 			},
 			{
 				"name":"8条件接收",
 				"url":"#",
 				"cls":"recive",
-                "rowOver":1,
-                "colOver":1
+                "rowCover":1,
+                "colCover":1,
+                "coverFromX":3,
+                "coverFromY":2
 			}
 		]
     },
@@ -81,130 +99,162 @@ var list = [
         "height":560,
         "rowCount":6,
         "colCount":3,
-        "spacing":10,
+        "spacing":5,
 		"items":[
 			{
 				"name":"0",
 				"url":"#",
 				"cls":"kingdom",
-                "rowOver":2,
-                "colOver":3
+                "rowCover":2,
+                "colCover":3,
+                "coverFromX":0,
+                "coverFromY":0
 			},
 			{
 				"name":"1音乐+",
 				"url":"#",
 				"cls":"music",
-                "rowOver":2,
-                "colOver":1
+                "rowCover":2,
+                "colCover":1,
+                "coverFromX":2,
+                "coverFromY":0
 			},
 			{
 				"name":"2爱奇艺",
 				"url":"#",
 				"cls":"aiqiyi",
-                "rowOver":2,
-                "colOver":1
+                "rowCover":2,
+                "colCover":1,
+                "coverFromX":4,
+                "coverFromY":0
 			},
 			{
 				"name":"3聚力",
 				"url":"#",
 				"cls":"pptv",
-                "rowOver":2,
-                "colOver":1
+                "rowCover":2,
+                "colCover":1,
+                "coverFromX":2,
+                "coverFromY":1
 			},
 			{
 				"name":"4凤凰新闻网",
 				"url":"#",
 				"cls":"fh-news",
-                "rowOver":1,
-                "colOver":1
+                "rowCover":1,
+                "colCover":1,
+                "coverFromX":4,
+                "coverFromY":1
 			},
 			{
 				"name":"5有朋",
 				"url":"#",
 				"cls":"youpeng",
-                "rowOver":1,
-                "colOver":1
+                "rowCover":1,
+                "colCover":1,
+                "coverFromX":5,
+                "coverFromY":1
 			},
 			{
 				"name":"6优酷",
 				"url":"#",
 				"cls":"youku",
-                "rowOver":2,
-                "colOver":1
+                "rowCover":2,
+                "colCover":1,
+                "coverFromX":2,
+                "coverFromY":2
 			},
 			{
 				"name":"7一方课堂",
 				"url":"#",
 				"cls":"yifang",
-                "rowOver":2,
-                "colOver":1
+                "rowCover":2,
+                "colCover":1,
+                "coverFromX":4,
+                "coverFromY":2
 			}
 		]
     },
     {
         "name":"我的应用",
-        "bg":"orange",
+        "bg":"black",
         "width":1120,
         "height":560,
         "rowCount":4,
         "colCount":2,
-        "spacing":10,
+        "spacing":5,
 		"items":[
 			{
 				"name":"0我的应用",
 				"url":"#",
 				"cls":"myuse1",
-                "rowOver":1,
-                "colOver":1
+                "rowCover":1,
+                "colCover":1,
+                "coverFromX":0,
+                "coverFromY":0
 			},
 			{
 				"name":"1我的应用",
 				"url":"#",
 				"cls":"myuse2",
-                "rowOver":1,
-                "colOver":1
+                "rowCover":1,
+                "colCover":1,
+                "coverFromX":1,
+                "coverFromY":0
 			},
 			{
 				"name":"2我的应用",
 				"url":"#",
 				"cls":"myuse3",
-                "rowOver":1,
-                "colOver":1
+                "rowCover":1,
+                "colCover":1,
+                "coverFromX":2,
+                "coverFromY":0
 			},
 			{
 				"name":"3我的应用",
 				"url":"#",
 				"cls":"myuse4",
-                "rowOver":1,
-                "colOver":1
+                "rowCover":1,
+                "colCover":1,
+                "coverFromX":3,
+                "coverFromY":0
 			},
 			{
 				"name":"4我的应用",
 				"url":"#",
 				"cls":"myuse5",
-                "rowOver":1,
-                "colOver":1
+                "rowCover":1,
+                "colCover":1,
+                "coverFromX":0,
+                "coverFromY":1
 			},
 			{
 				"name":"5我的应用",
 				"url":"#",
 				"cls":"myuse6",
-                "rowOver":1,
-                "colOver":1
+                "rowCover":1,
+                "colCover":1,
+                "coverFromX":1,
+                "coverFromY":1
 			},
 			{
 				"name":"6我的应用",
 				"url":"#",
 				"cls":"myuse7",
-                "rowOver":1,
-                "colOver":1
+                "rowCover":1,
+                "colCover":1,
+                "coverFromX":2,
+                "coverFromY":1
 			},
 			{
 				"name":"7我的应用",
 				"url":"#",
 				"cls":"myuse8",
-                "rowOver":1,
-                "colOver":1
+                "rowCover":1,
+                "colCover":1,
+                "coverFromX":3,
+                "coverFromY":1
 			}
 		]
     },
@@ -215,130 +265,162 @@ var list = [
         "height":560,
         "rowCount":4,
         "colCount":2,
-        "spacing":10,
+        "spacing":5,
 		"items":[
 			{
 				"name":"0用户中心",
 				"url":"#",
 				"cls":"usermid1",
-                "rowOver":1,
-                "colOver":1
+                "rowCover":1,
+                "colCover":1,
+                "coverFromX":0,
+                "coverFromY":0
 			},
 			{
 				"name":"1用户中心",
 				"url":"#",
 				"cls":"usermid2",
-                "rowOver":1,
-                "colOver":1
+                "rowCover":1,
+                "colCover":1,
+                "coverFromX":1,
+                "coverFromY":0
 			},
 			{
 				"name":"2用户中心",
 				"url":"#",
 				"cls":"usermid3",
-                "rowOver":1,
-                "colOver":1
+                "rowCover":1,
+                "colCover":1,
+                "coverFromX":2,
+                "coverFromY":0
 			},
 			{
 				"name":"3用户中心",
 				"url":"#",
 				"cls":"usermid4",
-                "rowOver":1,
-                "colOver":1
+                "rowCover":1,
+                "colCover":1,
+                "coverFromX":3,
+                "coverFromY":0
 			},
 			{
 				"name":"4用户中心",
 				"url":"#",
 				"cls":"usermid5",
-                "rowOver":1,
-                "colOver":1
+                "rowCover":1,
+                "colCover":1,
+                "coverFromX":0,
+                "coverFromY":1
 			},
 			{
 				"name":"5用户中心",
 				"url":"#",
 				"cls":"usermid6",
-                "rowOver":1,
-                "colOver":1
+                "rowCover":1,
+                "colCover":1,
+                "coverFromX":1,
+                "coverFromY":1
 			},
 			{
 				"name":"6用户中心",
 				"url":"#",
 				"cls":"usermid7",
-                "rowOver":1,
-                "colOver":1
+                "rowCover":1,
+                "colCover":1,
+                "coverFromX":2,
+                "coverFromY":1
 			},
 			{
 				"name":"7用户中心",
 				"url":"#",
 				"cls":"usermid8",
-                "rowOver":1,
-                "colOver":1
+                "rowCover":1,
+                "colCover":1,
+                "coverFromX":3,
+                "coverFromY":1
 			}
 		]
     },
     {
         "name":"系统设置",
-        "bg":"yellow",
+        "bg":"black",
         "width":1120,
         "height":560,
         "rowCount":4,
         "colCount":2,
-        "spacing":10,
+        "spacing":5,
 		"items":[
 			{
 				"name":"0系统设置",
 				"url":"#",
 				"cls":"sysset1",
-                "rowOver":1,
-                "colOver":1
+                "rowCover":1,
+                "colCover":1,
+                "coverFromX":0,
+                "coverFromY":0
 			},
 			{
 				"name":"1系统设置",
 				"url":"#",
 				"cls":"sysset2",
-                "rowOver":1,
-                "colOver":1
+                "rowCover":1,
+                "colCover":1,
+                "coverFromX":1,
+                "coverFromY":0
 			},
 			{
 				"name":"2系统设置",
 				"url":"#",
 				"cls":"sysset3",
-                "rowOver":1,
-                "colOver":1
+                "rowCover":1,
+                "colCover":1,
+                "coverFromX":2,
+                "coverFromY":0
 			},
 			{
 				"name":"3系统设置",
 				"url":"#",
 				"cls":"sysset4",
-                "rowOver":1,
-                "colOver":1
+                "rowCover":1,
+                "colCover":1,
+                "coverFromX":3,
+                "coverFromY":0
 			},
 			{
 				"name":"4系统设置",
 				"url":"#",
 				"cls":"sysset5",
-                "rowOver":1,
-                "colOver":1
+                "rowCover":1,
+                "colCover":1,
+                "coverFromX":0,
+                "coverFromY":1
 			},
 			{
 				"name":"5系统设置",
 				"url":"#",
 				"cls":"sysset6",
-                "rowOver":1,
-                "colOver":1
+                "rowCover":1,
+                "colCover":1,
+                "coverFromX":1,
+                "coverFromY":1
 			},
 			{
 				"name":"6系统设置",
 				"url":"#",
 				"cls":"sysset7",
-                "rowOver":1,
-                "colOver":1
+                "rowCover":1,
+                "colCover":1,
+                "coverFromX":2,
+                "coverFromY":1
 			},
 			{
 				"name":"7系统设置",
 				"url":"#",
 				"cls":"sysset8",
-                "rowOver":1,
-                "colOver":1
+                "rowCover":1,
+                "colCover":1,
+                "coverFromX":3,
+                "coverFromY":1
 			}
 		]
     }
