@@ -1,7 +1,7 @@
 function View() {
 
 	this.div = null;
-	
+
 }
 
 View.prototype.getDiv = function() {
@@ -73,10 +73,12 @@ function GridView(div, controller) {
 	this.selected = 0;
 	this.items = [];
 	this.div = div;
-	
+
 	this.isMenuMove = true;
 	this.isFocusMove = false;
-
+	
+	this.FocusPos = 0;
+	
 	this.render();
 }
 
@@ -141,36 +143,47 @@ GridView.prototype.render = function() {
 }
 
 GridView.prototype.onkeyEvent = function(key) {
-	
+
 	var isMenuMove = this.isMenuMove;
 	var isFocusMove = this.isFocusMove;
 	var index = this.index;
-	var i = 0;
 	if (key == 37) {
-		if (isMenuMove) {
+		if (isMenuMove == true && isFocusMove == false) {
 			this.moveToLeft();
-		}else if (isMenuMove == false && isFocusMove == true) {
-			this.items[index].setFocusPos();
-		}	
+		} 
+		if (isMenuMove == false && isFocusMove == true) {
+			
+		}
 	}
+
 	if (key == 39) {
-		if (isMenuMove) {
+		if (isMenuMove == true && isFocusMove == false) {
 			this.moveToRight();
-		}else if (isMenuMove == false && isFocusMove == true) {
-			this.items[index].setFocusPos();
-		}	
+		}
+		if (isMenuMove == false && isFocusMove == true) {
+		
+		}
 	}
+
 	if (key == 38) {
 		//this.items[index].setFocusPos()
 		this.items[index].setFocusHide();
 		this.isMenuMove = true;
 		this.isFocusMove = false;
+		this.FocusPos = 0;
 	}
+
 	if (key == 40) {
-		this.items[index].setFocusShow();
-		this.isMenuMove = false;
-		this.isFocusMove = true;
-		this.items[index].setFocusPos();
+		if (isMenuMove == false && isFocusMove == true) {
+			
+			
+		}
+		if (isMenuMove == true && isFocusMove == false) {
+			this.items[index].setFocusShow();
+			this.isMenuMove = false;
+			this.isFocusMove = true;
+		}
+		
 	}
 };
 
@@ -187,10 +200,12 @@ function MenuView(gridview, data) {
 	//menuDiv.style.background = data.bg;
 	menuDiv.style.width = data.width + "px";
 	menuDiv.style.height = data.height + "px";
-	menuDiv.style.webkitTransition = "left .3s linear"
+	menuDiv.style.webkitTransition = "left .2s linear"
 
 	this.div = menuDiv;
 	this.divItems = [];
+	
+	this.grids = []
 
 	this.width = data.width;
 	this.height = data.height;
@@ -215,9 +230,15 @@ MenuView.prototype.render = function() {
 	var i;
 	var itemInfo = this.iteminfo;
 	var divItems = this.divItems;
+	var j;
+	var rowCol = this.rowCount * this.colCount;
+	var grids = this.grids
+	
 	for (i = 0; i < itemInfo.length; i ++) {
 		divItems[i] = new ItemView(this, itemInfo[i]);
 	}
+	
+
 };
 
 MenuView.prototype.setFocusShow = function() {
@@ -227,32 +248,44 @@ MenuView.prototype.setFocusShow = function() {
 
 MenuView.prototype.setFocusHide = function() {
 	this.focusView.hide();
+	this.initFocus();
 };
 
 MenuView.prototype.initFocus = function () {
 	var div = this.divItems[0];
 	var borderW = parseInt(this.focusView.getStyle("borderWidth"));
-	var l = div.left - borderW;      
-	var t = div.top - borderW;
-	var w = div.width;
-	var h = div.height;
-	
-	this.focusView.moveTo(l,null,t,null);
-	this.focusView.setSize(w,h)
+	var start_left = div.left - borderW;
+	var start_top = div.top - borderW;
+	var start_width = div.width;
+	var start_height = div.height;
+
+	this.focusView.moveTo(start_left,null,start_top,null);
+	this.focusView.setSize(start_width,start_height)
 };
 
-MenuView.prototype.setFocusPos = function(i) {
+MenuView.prototype.setFocusPos = function(index) {
+
+	var nextDiv = this.divItems[index];
+	var borderW = parseInt(this.focusView.getStyle("borderWidth"));
+
+	var w = nextDiv.width;
+	var h = nextDiv.height;
+	var l = nextDiv.left - borderW;
+	var t = nextDiv.top - borderW;
+
+	this.focusView.moveTo(l,null,t,null);
+	this.focusView.setSize(w,h);
+	
 	
 	var focu_width = this.focusView.getStyle("width");
 	var focu_height = this.focusView.getStyle("height");
 	var focu_left = this.focusView.getStyle("left");
 	var focu_top = this.focusView.getStyle("top");
-	
 	console.log(focu_width + "++" + focu_height + "++" + focu_left + "++" + focu_top)
 }
 
 MenuView.prototype.onKeyEvent = function () {
-	
+
 }
 
 //单个选项 or 色块   父容器为menuview
@@ -270,7 +303,7 @@ function ItemView(menuview, data) {
 	//占据单元格的开始位置
 	this.coverFromX = data.coverFromX;
 	this.coverFromY = data.coverFromY;
-	
+
 	var spacing = menuview.spacing;
 	var div = menuview.div;
 	var smalldiv = document.createElement("div");
@@ -282,10 +315,12 @@ function ItemView(menuview, data) {
 	this.height = averageHeight * this.colCover + (this.colCover - 1) * spacing;
 	this.left = this.coverFromX * averageWidth + (this.coverFromX + 1) * spacing;
 	this.top = this.coverFromY * averageHeight + (this.coverFromY + 1) * spacing;
-	
-	smalldiv.className = this.cls;
-	smalldiv.innerHTML = this.txt;
 
+	smalldiv.className = this.cls;
+	
+	smalldiv.innerHTML = "this.rowCover = " + this.rowCover + " <br/>this.colCover = " + this.colCover + "<br/>" + "coverFromX = " +
+		this.coverFromX + "<br/>" + "coverFromY = " + this.coverFromY 
+		
 	this.div = smalldiv;
 
 	div.appendChild(smalldiv);
@@ -310,7 +345,7 @@ function FocusView(menuview) {
 	View.call(this);
 	var div = menuview.getDiv();
 	var focusDiv = document.createElement("div");
-	focusDiv.style.webkitTransitionDuration = "0.3s"
+	focusDiv.style.webkitTransitionDuration = "0.2s"
 	focusDiv.style.webkitTransitionTimingFunction = "linear"
 	focusDiv.className = "focus-div";
 	this.div = focusDiv;
