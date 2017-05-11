@@ -54,7 +54,7 @@ body {
 }
 
 #menu_wraper .menu-list0 div {
-	color: #fff;
+	color: white;
 	text-align: center;
 	font-size: 16px;
 	position: absolute;
@@ -69,12 +69,12 @@ body {
 #menu_wraper .menu-list0 .pro-post {
 
 	background: green;
-	
+
 
 }
 
 #menu_wraper .menu-list0 .pro-search {
-	
+
 	background: aquamarine;
 
 
@@ -83,28 +83,28 @@ body {
 #menu_wraper .menu-list0 .pro-edit {
 
 	background: mediumpurple;
-	
-	
+
+
 }
 
 #menu_wraper .menu-list0 .e-mail {
-	
+
 	background: cornflowerblue;
-	
+
 
 }
 
 #menu_wraper .menu-list0 .add-pic {
-	
+
 	background: url(../img/timg.jpg);
 	background-size: cover;
 	/*-webkit-box-reflect:below 5px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(0.4, transparent), to(white));*/
 }
 
 #menu_wraper .menu-list0 .tv-pro {
-	
+
 	background: green;
-	
+
 	/*-webkit-box-reflect:below 5px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(0.4, transparent), to(white));*/
 }
 
@@ -116,9 +116,9 @@ body {
 }
 
 #menu_wraper .menu-list0 .recive {
-	
+
 	background: orange;
-	
+
 	/*-webkit-box-reflect:below 5px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(0.4, transparent), to(white));*/
 }
 
@@ -130,35 +130,35 @@ body {
 }
 
 #menu_wraper .menu-list1 .kingdom {
-	
+
 	background: url(../img/gitta.jpg);
 	background-size: contain;
 
 }
 
 #menu_wraper .menu-list1 .music {
-	
+
 
 	background: cyan;
-	
+
 }
 
 #menu_wraper .menu-list1 .aiqiyi {
-	
+
 
 	background: purple;
-	
+
 }
 
 #menu_wraper .menu-list1 .pptv {
-	
+
 
 	background: orangered;
-	
+
 }
 
 #menu_wraper .menu-list1 .fh-news {
-	
+
 
 	background: blue;
 
@@ -168,28 +168,28 @@ body {
 
 
 	background: sienna;
-	
+
 }
 
 #menu_wraper .menu-list1 .youku {
 
 
 	background: mediumpurple;
-	
+
 }
 
 #menu_wraper .menu-list1 .yifang {
-	
+
 
 	background: greenyellow;
-	
+
 }
 
 
 .menu-list2 div,
 .menu-list3 div,
 .menu-list4 div {
-	
+
 	position: inherit;
 	/*margin: 0 10px 10px 0;*/
 	border: 1px solid #222;

@@ -1,58 +1,16 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-	<head>
-		<meta charset="UTF-8">
-		<script src="js/jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
-		<style media="screen">
-
-			.test1 {
-				width: 200px;
-				height: 100px;
-
-				margin-top: 10px;
-				background: red;
-				opacity: 1
-			}
-			#test1{
-				left:200px
-			}
-		</style>
-		<title>Document</title>
-	</head>
-
-	<body>
-		<!-- <div id="test">
-
-  </div> -->
-		<div class="test1" tabindex="-1">
-
-		</div>
-		<div class="test1" tabindex="-1">
-
-		</div>
-		<div id="test1" style="position:absolute;top:500px;width:300px;height:200px;border:1px solid #000">
-
-		</div>
-		<button type="button" name="button" id="btn">anniu</button>
-	</body>
-	<script type="text/javascript">
-
-		/*$("#btn1").click(function () {
-			$("#test1").css('left',"200px").stop().animate({"left":"800px"},200)
-		})*/
-
-
-
-		var test = document.getElementsByClassName("test1")[0];
-
-
-		var btn = document.getElementById("btn");
-		btn.onclick = function () {
-			console.log(1);
-		}
-		var tes = document.getElementById("test1");
-		alert(tes.style.width)
-	</script>
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+	
+</body>
+<script src="http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js"></script>
+<script>
+    alert(remote_ip_info.province + '\n' + remote_ip_info.city)
+</script>
 
 </html>
