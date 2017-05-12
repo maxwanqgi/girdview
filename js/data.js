@@ -394,13 +394,23 @@ var list = [
                 "coverFromY":0
 			},
 			{
+				"name":"0系统设置",
+				"url":"#",
+				"bg":"orange",
+				"cls":"sysset1",
+                "rowCover":1,
+                "colCover":1,
+                "coverFromX":1,
+                "coverFromY":0
+			},
+			{
 				"name":"1系统设置",
 				"url":"#",
 				"bg":"orange",
 				"cls":"sysset2",
-                "rowCover":1,
+                "rowCover":2,
                 "colCover":1,
-                "coverFromX":1,
+                "coverFromX":2,
                 "coverFromY":0
 			},
 			{
@@ -408,10 +418,10 @@ var list = [
 				"url":"#",
 				"bg":"orange",
 				"cls":"sysset3",
-                "rowCover":1,
+                "rowCover":2,
                 "colCover":1,
-                "coverFromX":2,
-                "coverFromY":0
+                "coverFromX":0,
+                "coverFromY":1
 			},
 			{
 				"name":"3系统设置",
@@ -420,9 +430,9 @@ var list = [
 				"cls":"sysset4",
                 "rowCover":1,
                 "colCover":1,
-                "coverFromX":3,
-                "coverFromY":0
-			},
+                "coverFromX":2,
+                "coverFromY":1
+			}/*,
 			{
 				"name":"4系统设置",
 				"url":"#",
@@ -430,39 +440,9 @@ var list = [
 				"cls":"sysset5",
                 "rowCover":1,
                 "colCover":1,
-                "coverFromX":0,
-                "coverFromY":1
-			},
-			{
-				"name":"5系统设置",
-				"url":"#",
-				"bg":"orange",
-				"cls":"sysset6",
-                "rowCover":1,
-                "colCover":1,
-                "coverFromX":1,
-                "coverFromY":1
-			},
-			{
-				"name":"6系统设置",
-				"url":"#",
-				"bg":"orange",
-				"cls":"sysset7",
-                "rowCover":1,
-                "colCover":1,
-                "coverFromX":2,
-                "coverFromY":1
-			},
-			{
-				"name":"7系统设置",
-				"url":"#",
-				"bg":"orange",
-				"cls":"sysset8",
-                "rowCover":1,
-                "colCover":1,
                 "coverFromX":3,
                 "coverFromY":1
-			}
+			}*/
 		]
     }
 ]

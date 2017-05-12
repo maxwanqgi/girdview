@@ -21,7 +21,9 @@
 <script>
     //alert(remote_ip_info.province + '\n' + remote_ip_info.city)
 
-	
+	window.onresize = function () {
+		console.log(document.body.clientWidth + "------" + document.body.clientHeight)
+	}
 </script>
 
 </html>
