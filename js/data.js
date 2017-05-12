@@ -12,6 +12,7 @@ var list = [
 			{
 				"name":"",
 				"url":"#",
+				"bg":"#222",
 				"cls":"program",
                 "rowCover":3,
                 "colCover":2,
@@ -21,6 +22,7 @@ var list = [
 			{
 				"name":"1节目指南",
 				"url":"#",
+				"bg":"green",
 				"cls":"pro-post",
                 "rowCover":1,
                 "colCover":1,
@@ -30,6 +32,7 @@ var list = [
 			{
 				"name":"2节目搜索",
 				"url":"#",
+				"bg":"aquamarine",
 				"cls":"pro-search",
                 "rowCover":1,
                 "colCover":1,
@@ -39,6 +42,7 @@ var list = [
 			{
 				"name":"3节目编辑",
 				"url":"#",
+				"bg":"mediumpurple",
 				"cls":"pro-edit",
                 "rowCover":1,
                 "colCover":1,
@@ -48,6 +52,7 @@ var list = [
 			{
 				"name":"4电子邮件",
 				"url":"#",
+				"bg":"cornflowerblue",
 				"cls":"e-mail",
                 "rowCover":1,
                 "colCover":1,
@@ -57,6 +62,7 @@ var list = [
 			{
 				"name":"",
 				"url":"#",
+				"bg":"url(img/timg.jpg)",
 				"cls":"add-pic",
                 "rowCover":2,
                 "colCover":2,
@@ -64,8 +70,9 @@ var list = [
                 "coverFromY":1
 			},
 			{
-				"name":"6电视节目",
+				"name":"",
 				"url":"#",
+				"bg":"url(img/vod_film.jpg)",
 				"cls":"tv-pro",
                 "rowCover":2,
                 "colCover":1,
@@ -75,6 +82,7 @@ var list = [
 			{
 				"name":"7广播节目",
 				"url":"#",
+				"bg":"purple",
 				"cls":"tv-bro",
                 "rowCover":1,
                 "colCover":1,
@@ -84,6 +92,7 @@ var list = [
 			{
 				"name":"8条件接收",
 				"url":"#",
+				"bg":"orange",
 				"cls":"recive",
                 "rowCover":1,
                 "colCover":1,
@@ -104,6 +113,7 @@ var list = [
 			{
 				"name":"0",
 				"url":"#",
+				"bg":"url(img/gitta.jpg)",
 				"cls":"kingdom",
                 "rowCover":2,
                 "colCover":3,
@@ -113,6 +123,7 @@ var list = [
 			{
 				"name":"1音乐+",
 				"url":"#",
+				"bg":"cyan",
 				"cls":"music",
                 "rowCover":2,
                 "colCover":1,
@@ -122,6 +133,7 @@ var list = [
 			{
 				"name":"2爱奇艺",
 				"url":"#",
+				"bg":"purple",
 				"cls":"aiqiyi",
                 "rowCover":2,
                 "colCover":1,
@@ -129,8 +141,9 @@ var list = [
                 "coverFromY":0
 			},
 			{
-				"name":"3聚力",
+				"name":"",
 				"url":"#",
+				"bg":"url(img/vod_film.jpg)",
 				"cls":"pptv",
                 "rowCover":2,
                 "colCover":1,
@@ -140,6 +153,7 @@ var list = [
 			{
 				"name":"4凤凰新闻网",
 				"url":"#",
+				"bg":"blue",
 				"cls":"fh-news",
                 "rowCover":1,
                 "colCover":1,
@@ -149,6 +163,7 @@ var list = [
 			{
 				"name":"5有朋",
 				"url":"#",
+				"bg":"sienna",
 				"cls":"youpeng",
                 "rowCover":1,
                 "colCover":1,
@@ -158,6 +173,7 @@ var list = [
 			{
 				"name":"6优酷",
 				"url":"#",
+				"bg":"mediumpurple",
 				"cls":"youku",
                 "rowCover":2,
                 "colCover":1,
@@ -167,6 +183,7 @@ var list = [
 			{
 				"name":"7一方课堂",
 				"url":"#",
+				"bg":"greenyellow",
 				"cls":"yifang",
                 "rowCover":2,
                 "colCover":1,
@@ -187,6 +204,7 @@ var list = [
 			{
 				"name":"0我的应用",
 				"url":"#",
+				"bg":"cyan",
 				"cls":"myuse1",
                 "rowCover":1,
                 "colCover":1,
@@ -196,6 +214,7 @@ var list = [
 			{
 				"name":"1我的应用",
 				"url":"#",
+				"bg":"cyan",
 				"cls":"myuse2",
                 "rowCover":1,
                 "colCover":1,
@@ -205,6 +224,7 @@ var list = [
 			{
 				"name":"2我的应用",
 				"url":"#",
+				"bg":"cyan",
 				"cls":"myuse3",
                 "rowCover":1,
                 "colCover":1,
@@ -214,6 +234,7 @@ var list = [
 			{
 				"name":"3我的应用",
 				"url":"#",
+				"bg":"cyan",
 				"cls":"myuse4",
                 "rowCover":1,
                 "colCover":1,
@@ -223,6 +244,7 @@ var list = [
 			{
 				"name":"4我的应用",
 				"url":"#",
+				"bg":"cyan",
 				"cls":"myuse5",
                 "rowCover":1,
                 "colCover":1,
@@ -232,6 +254,7 @@ var list = [
 			{
 				"name":"5我的应用",
 				"url":"#",
+				"bg":"cyan",
 				"cls":"myuse6",
                 "rowCover":1,
                 "colCover":1,
@@ -241,6 +264,7 @@ var list = [
 			{
 				"name":"6我的应用",
 				"url":"#",
+				"bg":"cyan",
 				"cls":"myuse7",
                 "rowCover":1,
                 "colCover":1,
@@ -250,6 +274,7 @@ var list = [
 			{
 				"name":"7我的应用",
 				"url":"#",
+				"bg":"cyan",
 				"cls":"myuse8",
                 "rowCover":1,
                 "colCover":1,
@@ -270,6 +295,7 @@ var list = [
 			{
 				"name":"0用户中心",
 				"url":"#",
+				"bg":"peru",
 				"cls":"usermid1",
                 "rowCover":1,
                 "colCover":1,
@@ -279,6 +305,7 @@ var list = [
 			{
 				"name":"1用户中心",
 				"url":"#",
+				"bg":"peru",
 				"cls":"usermid2",
                 "rowCover":1,
                 "colCover":1,
@@ -288,6 +315,7 @@ var list = [
 			{
 				"name":"2用户中心",
 				"url":"#",
+				"bg":"peru",
 				"cls":"usermid3",
                 "rowCover":1,
                 "colCover":1,
@@ -297,6 +325,7 @@ var list = [
 			{
 				"name":"3用户中心",
 				"url":"#",
+				"bg":"peru",
 				"cls":"usermid4",
                 "rowCover":1,
                 "colCover":1,
@@ -306,6 +335,7 @@ var list = [
 			{
 				"name":"4用户中心",
 				"url":"#",
+				"bg":"peru",
 				"cls":"usermid5",
                 "rowCover":1,
                 "colCover":1,
@@ -315,6 +345,7 @@ var list = [
 			{
 				"name":"5用户中心",
 				"url":"#",
+				"bg":"peru",
 				"cls":"usermid6",
                 "rowCover":1,
                 "colCover":1,
@@ -324,6 +355,7 @@ var list = [
 			{
 				"name":"6用户中心",
 				"url":"#",
+				"bg":"peru",
 				"cls":"usermid7",
                 "rowCover":1,
                 "colCover":1,
@@ -333,6 +365,7 @@ var list = [
 			{
 				"name":"7用户中心",
 				"url":"#",
+				"bg":"peru",
 				"cls":"usermid8",
                 "rowCover":1,
                 "colCover":1,
@@ -353,6 +386,7 @@ var list = [
 			{
 				"name":"0系统设置",
 				"url":"#",
+				"bg":"orange",
 				"cls":"sysset1",
                 "rowCover":1,
                 "colCover":1,
@@ -362,6 +396,7 @@ var list = [
 			{
 				"name":"1系统设置",
 				"url":"#",
+				"bg":"orange",
 				"cls":"sysset2",
                 "rowCover":1,
                 "colCover":1,
@@ -371,6 +406,7 @@ var list = [
 			{
 				"name":"2系统设置",
 				"url":"#",
+				"bg":"orange",
 				"cls":"sysset3",
                 "rowCover":1,
                 "colCover":1,
@@ -380,6 +416,7 @@ var list = [
 			{
 				"name":"3系统设置",
 				"url":"#",
+				"bg":"orange",
 				"cls":"sysset4",
                 "rowCover":1,
                 "colCover":1,
@@ -389,6 +426,7 @@ var list = [
 			{
 				"name":"4系统设置",
 				"url":"#",
+				"bg":"orange",
 				"cls":"sysset5",
                 "rowCover":1,
                 "colCover":1,
@@ -398,6 +436,7 @@ var list = [
 			{
 				"name":"5系统设置",
 				"url":"#",
+				"bg":"orange",
 				"cls":"sysset6",
                 "rowCover":1,
                 "colCover":1,
@@ -407,6 +446,7 @@ var list = [
 			{
 				"name":"6系统设置",
 				"url":"#",
+				"bg":"orange",
 				"cls":"sysset7",
                 "rowCover":1,
                 "colCover":1,
@@ -416,6 +456,7 @@ var list = [
 			{
 				"name":"7系统设置",
 				"url":"#",
+				"bg":"orange",
 				"cls":"sysset8",
                 "rowCover":1,
                 "colCover":1,

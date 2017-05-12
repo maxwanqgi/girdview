@@ -60,6 +60,7 @@ View.prototype.moveTo = function(l, r, t, b) {
 		if (b || b === 0) {
 			this.div.style.bottom = b + "px";
 		}
+		return this.div;
 	}
 }
 
@@ -100,6 +101,7 @@ GridView.prototype.startMove = function() {
 		tag.moveTo(w, null, null, null)
 		tag1.moveTo(0, null, null, null)
 	}
+
 
 };
 
@@ -148,58 +150,112 @@ GridView.prototype.onkeyEvent = function(key) {
 	var isFocusMove = this.isFocusMove;
 	var index = this.index;
 	var currMenu = this.items[index];
-	var _focusPos = this.FocusPos;
+	var list = currMenu.gridList;
+	
 	if (key == 37) {
 		//left
+		console.log(this.FocusPos)
 		if (isMenuMove == true && isFocusMove == false) {
 
 			this.moveToLeft();
 		}
+		
 		if (isMenuMove == false && isFocusMove == true) {
 			var old = currMenu.gridList[this.FocusPos];
-			this.FocusPos--;
+			this.FocusPos --;
+			
 			var now = currMenu.gridList[this.FocusPos];
-			if (old == now) {
-				this.FocusPos--;
+			if (old === now) {
+				for (var i = old.coverFromX + 1;i < old.coverFromX + old.rowCover;i ++) {
+					this.FocusPos --;
+					 if((this.FocusPos + 1) % currMenu.rowCount == 0) {	
+					 
+					 	if (index == 0) {
+					 		this.FocusPos ++;
+					 	}else {
+					 		currMenu.setFocusHide();
+							this.isMenuMove = true;
+							this.isFocusMove = false;
+							this.FocusPos = 0;
+							this.moveToLeft();
+					 	}
+							
+					}
+
+					currMenu.setFocusPos(this.FocusPos)
+				}
+				
 			} else {
+				if ((this.FocusPos + 1) % currMenu.rowCount == 0) {	
+					currMenu.setFocusHide();
+					this.isMenuMove = true;
+					this.isFocusMove = false;
+					this.FocusPos = 0;
+					this.moveToLeft();
+				}
 				currMenu.setFocusPos(this.FocusPos)
 			}
+			
 		}
 	}
 
-	if (key == 39) {
+	else if (key == 39) {
 		//right
+	
 		if (isMenuMove == true && isFocusMove == false) {
 			this.moveToRight();
 		}
 		if (isMenuMove == false && isFocusMove == true) {
 			var old = currMenu.gridList[this.FocusPos];
-			this.FocusPos++;
-
+			this.FocusPos += 1;
 			var now = currMenu.gridList[this.FocusPos];
-			currMenu.setFocusPos(this.FocusPos)
-			if (old == now) {
-				this.FocusPos++;
-
+			if (old === now) {
+				for (var i = old.coverFromX + 1;i < old.coverFromX + old.rowCover;i ++) {
+					this.FocusPos ++;
+					if (this.FocusPos % currMenu.rowCount == 0) {	
+						currMenu.setFocusHide();
+						this.isMenuMove = true;
+						this.isFocusMove = false;
+						this.FocusPos = 0;
+						this.moveToRight();
+					}
+					currMenu.setFocusPos(this.FocusPos)
+				}
+				
 			} else {
+				
+				if (this.FocusPos % currMenu.rowCount == 0) {
+					currMenu.setFocusHide();
+					this.isMenuMove = true;
+					this.isFocusMove = false;
+					this.FocusPos = 0;
+					this.moveToRight();
+				}
 				currMenu.setFocusPos(this.FocusPos)
 			}
-			
-			
 		}
 	}
 
-	if (key == 38) {
+	else if (key == 38) {
 		//top
 
 		if (isMenuMove == false && isFocusMove == true) {
 			var old = currMenu.gridList[this.FocusPos];
 			this.FocusPos -= currMenu.rowCount;
 			var now = currMenu.gridList[this.FocusPos];
-			if (old == now) {
-				this.FocusPos -= currMenu.rowCount
+			if (old === now) {
+				for (var i = old.coverFromY - 1;i > old.coverFromY - old.colCover;i --) {
+					this.FocusPos -= currMenu.rowCount;
+					if (this.FocusPos < 0) {
+						currMenu.setFocusHide();
+						this.isMenuMove = true;
+						this.isFocusMove = false;
+						this.FocusPos = 0
+					}
+					currMenu.setFocusPos(this.FocusPos)
+				}
+				
 			} else {
-
 				if (this.FocusPos < 0) {
 					currMenu.setFocusHide();
 					this.isMenuMove = true;
@@ -208,31 +264,39 @@ GridView.prototype.onkeyEvent = function(key) {
 				}
 				currMenu.setFocusPos(this.FocusPos)
 			}
+			
 		}
 
 	}
 
-	if (key == 40) {
+	else if (key == 40) {
 		//down
 		if (isMenuMove == false && isFocusMove == true) {
 			var old = currMenu.gridList[this.FocusPos];
 			this.FocusPos += currMenu.rowCount;
-
 			var now = currMenu.gridList[this.FocusPos];
-			if (old == now) {
-
-				this.FocusPos += currMenu.rowCount;
+			if (old === now) {
+				for (var i = old.coverFromY;i < old.coverFromY + old.colCover;i ++) {
+					this.FocusPos += currMenu.rowCount;
+					if (this.FocusPos > list.length - 1) {
+						this.FocusPos -= currMenu.rowCount;
+					}
+			
+					currMenu.setFocusPos(this.FocusPos)
+				}
 			} else {
+				if (this.FocusPos > list.length - 1) {
+					this.FocusPos -= currMenu.rowCount;
+				}
 				currMenu.setFocusPos(this.FocusPos)
 			}
 
 		}
-		if (isMenuMove == true && isFocusMove == false) {
+		else if (isMenuMove == true && isFocusMove == false) {
 			this.items[index].setFocusShow();
 			this.isMenuMove = false;
 			this.isFocusMove = true;
 		}
-
 	}
 };
 
@@ -270,6 +334,8 @@ function MenuView(gridview, data) {
 
 	this.render();
 	this.focusView = new FocusView(this);
+	
+	this.focusPos = 0;
 
 }
 
@@ -297,7 +363,7 @@ MenuView.prototype.setFocusShow = function() {
 
 MenuView.prototype.setFocusHide = function() {
 	this.focusView.hide();
-	this.initFocus();
+	//this.initFocus();
 };
 
 MenuView.prototype.initFocus = function() {
@@ -329,7 +395,7 @@ MenuView.prototype.setFocusPos = function(index) {
 	var focu_height = this.focusView.getStyle("height");
 	var focu_left = this.focusView.getStyle("left");
 	var focu_top = this.focusView.getStyle("top");
-	console.log(focu_width + "++" + focu_height + "++" + focu_left + "++" + focu_top)
+	//console.log(focu_width + "++" + focu_height + "++" + focu_left + "++" + focu_top)
 }
 
 MenuView.prototype.onKeyEvent = function() {
@@ -367,13 +433,18 @@ function ItemView(menuview, data) {
 
 	smalldiv.className = this.cls;
 	smalldiv.innerHTML = this.txt;
+	smalldiv.style.background = data.bg;
+	smalldiv.style.backgroundSize = "cover"
+	smalldiv.style.position = "absolute";
+	smalldiv.style.color = "white";
+	smalldiv.style.textAlign = "center"
 	smalldiv.style.lineHeight = this.height + "px";
 	smalldiv.style.fontSize = "20px"
 	this.div = smalldiv;
 
 	div.appendChild(smalldiv);
 
-	this.setPostion();
+	this.render();
 
 	this.pushItems()
 };
@@ -381,25 +452,23 @@ function ItemView(menuview, data) {
 ItemView.prototype = new View();
 
 ItemView.prototype.pushItems = function() {
-		var R = this.rowCover;
-		var C = this.colCover;
-		var startX = this.coverFromX;
-		var startY = this.coverFromY;
+	var R = this.rowCover;
+	var C = this.colCover;
+	var startX = this.coverFromX;
+	var startY = this.coverFromY;
 
-		var rowCount = this.menuview.rowCount;
-		var colCount = this.menuview.colCount;
+	var rowCount = this.menuview.rowCount;
+	var colCount = this.menuview.colCount;
 
-		for (var c = startY; c < startY + C; c++) {
-			for (var r = 0; r < R; r++) {
-				var a = c * rowCount + startX + r;
-				this.menuview.gridList[a] = this;
-			}
+	for (var c = startY; c < startY + C; c++) {
+		for (var r = 0; r < R; r++) {
+			var a = c * rowCount + startX + r;
+			this.menuview.gridList[a] = this;
 		}
-
-		//divgrid.sort();
 	}
+}
 	//
-ItemView.prototype.setPostion = function() {
+ItemView.prototype.render = function() {
 	this.moveTo(this.left, null, this.top, null)
 	this.setSize(this.width, this.height)
 }
