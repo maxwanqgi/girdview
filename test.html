@@ -21,9 +21,47 @@
 <script>
     //alert(remote_ip_info.province + '\n' + remote_ip_info.city)
 
-	window.onresize = function () {
-		console.log(document.body.clientWidth + "------" + document.body.clientHeight)
+	var test = document.getElementById("test")
+	/*function a (callback) {
+		test.style.webkitTransition = "left 0s";
+		test.style.left = 600+"px";
+		callback()
 	}
+	
+
+	
+	function b () {
+		
+		setTimeout(function () {
+			test.style.webkitTransition = "left 0.5s"
+			test.style.left = 300+"px";
+		})
+		
+	}
+	
+	document.onclick = function () {
+		a(b)
+	}*/
+	
+	
+	function a() {
+		test.style.webkitTransition = "left 0s";
+		test.style.left = 600+"px";
+		setTimeout(function () {
+			test.style.webkitTransition = "left 0.5s"
+			test.style.left = 300+"px";
+		})
+	}
+	
+	document.onclick = function () {
+		a();
+		
+		
+	}
+	
+
+	
+	
 </script>
 
 </html>

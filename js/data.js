@@ -20,7 +20,7 @@ var list = [
                 "coverFromY":0
 			},
 			{
-				"name":"1节目指南",
+				"name":"节目指南",
 				"url":"#",
 				"bg":"green",
 				"cls":"pro-post",
@@ -30,7 +30,7 @@ var list = [
                 "coverFromY":0
 			},
 			{
-				"name":"2节目搜索",
+				"name":"节目搜索",
 				"url":"#",
 				"bg":"aquamarine",
 				"cls":"pro-search",
@@ -40,7 +40,7 @@ var list = [
                 "coverFromY":0
 			},
 			{
-				"name":"3节目编辑",
+				"name":"节目编辑",
 				"url":"#",
 				"bg":"mediumpurple",
 				"cls":"pro-edit",
@@ -50,7 +50,7 @@ var list = [
                 "coverFromY":0
 			},
 			{
-				"name":"4电子邮件",
+				"name":"电子邮件",
 				"url":"#",
 				"bg":"cornflowerblue",
 				"cls":"e-mail",
@@ -80,7 +80,7 @@ var list = [
                 "coverFromY":2
 			},
 			{
-				"name":"7广播节目",
+				"name":"广播节目",
 				"url":"#",
 				"bg":"purple",
 				"cls":"tv-bro",
@@ -90,7 +90,7 @@ var list = [
                 "coverFromY":2
 			},
 			{
-				"name":"8条件接收",
+				"name":"条件接收",
 				"url":"#",
 				"bg":"orange",
 				"cls":"recive",
@@ -121,7 +121,7 @@ var list = [
                 "coverFromY":0
 			},
 			{
-				"name":"1音乐+",
+				"name":"音乐+",
 				"url":"#",
 				"bg":"cyan",
 				"cls":"music",
@@ -131,7 +131,7 @@ var list = [
                 "coverFromY":0
 			},
 			{
-				"name":"2爱奇艺",
+				"name":"爱奇艺",
 				"url":"#",
 				"bg":"purple",
 				"cls":"aiqiyi",
@@ -151,7 +151,7 @@ var list = [
                 "coverFromY":1
 			},
 			{
-				"name":"4凤凰新闻网",
+				"name":"凤凰新闻网",
 				"url":"#",
 				"bg":"blue",
 				"cls":"fh-news",
@@ -161,7 +161,7 @@ var list = [
                 "coverFromY":1
 			},
 			{
-				"name":"5有朋",
+				"name":"优朋",
 				"url":"#",
 				"bg":"sienna",
 				"cls":"youpeng",
@@ -171,7 +171,7 @@ var list = [
                 "coverFromY":1
 			},
 			{
-				"name":"6优酷",
+				"name":"优酷",
 				"url":"#",
 				"bg":"mediumpurple",
 				"cls":"youku",
@@ -181,7 +181,7 @@ var list = [
                 "coverFromY":2
 			},
 			{
-				"name":"7一方课堂",
+				"name":"义方课堂",
 				"url":"#",
 				"bg":"greenyellow",
 				"cls":"yifang",
@@ -202,7 +202,7 @@ var list = [
         "spacing":5,
 		"items":[
 			{
-				"name":"0我的应用",
+				"name":"我的应用",
 				"url":"#",
 				"bg":"cyan",
 				"cls":"myuse1",
@@ -212,7 +212,7 @@ var list = [
                 "coverFromY":0
 			},
 			{
-				"name":"1我的应用",
+				"name":"我的应用",
 				"url":"#",
 				"bg":"cyan",
 				"cls":"myuse2",
@@ -222,7 +222,7 @@ var list = [
                 "coverFromY":0
 			},
 			{
-				"name":"2我的应用",
+				"name":"我的应用",
 				"url":"#",
 				"bg":"cyan",
 				"cls":"myuse3",
@@ -231,8 +231,8 @@ var list = [
                 "coverFromX":2,
                 "coverFromY":0
 			},
-			{
-				"name":"3我的应用",
+			/*{
+				"name":"我的应用",
 				"url":"#",
 				"bg":"cyan",
 				"cls":"myuse4",
@@ -240,9 +240,9 @@ var list = [
                 "colCover":1,
                 "coverFromX":3,
                 "coverFromY":0
-			},
+			},*/
 			{
-				"name":"4我的应用",
+				"name":"我的应用",
 				"url":"#",
 				"bg":"cyan",
 				"cls":"myuse5",
@@ -252,7 +252,7 @@ var list = [
                 "coverFromY":1
 			},
 			{
-				"name":"5我的应用",
+				"name":"我的应用",
 				"url":"#",
 				"bg":"cyan",
 				"cls":"myuse6",
@@ -262,7 +262,7 @@ var list = [
                 "coverFromY":1
 			},
 			{
-				"name":"6我的应用",
+				"name":"我的应用",
 				"url":"#",
 				"bg":"cyan",
 				"cls":"myuse7",
@@ -272,7 +272,7 @@ var list = [
                 "coverFromY":1
 			},
 			{
-				"name":"7我的应用",
+				"name":"我的应用",
 				"url":"#",
 				"bg":"cyan",
 				"cls":"myuse8",
@@ -293,7 +293,7 @@ var list = [
         "spacing":5,
 		"items":[
 			{
-				"name":"0用户中心",
+				"name":"用户中心",
 				"url":"#",
 				"bg":"peru",
 				"cls":"usermid1",
@@ -303,7 +303,7 @@ var list = [
                 "coverFromY":0
 			},
 			{
-				"name":"1用户中心",
+				"name":"用户中心",
 				"url":"#",
 				"bg":"peru",
 				"cls":"usermid2",
@@ -313,7 +313,7 @@ var list = [
                 "coverFromY":0
 			},
 			{
-				"name":"2用户中心",
+				"name":"用户中心",
 				"url":"#",
 				"bg":"peru",
 				"cls":"usermid3",
@@ -323,7 +323,7 @@ var list = [
                 "coverFromY":0
 			},
 			{
-				"name":"3用户中心",
+				"name":"用户中心",
 				"url":"#",
 				"bg":"peru",
 				"cls":"usermid4",
@@ -343,7 +343,7 @@ var list = [
                 "coverFromY":1
 			},
 			{
-				"name":"5用户中心",
+				"name":"用户中心",
 				"url":"#",
 				"bg":"peru",
 				"cls":"usermid6",
@@ -353,7 +353,7 @@ var list = [
                 "coverFromY":1
 			},
 			{
-				"name":"6用户中心",
+				"name":"用户中心",
 				"url":"#",
 				"bg":"peru",
 				"cls":"usermid7",
@@ -361,7 +361,7 @@ var list = [
                 "colCover":1,
                 "coverFromX":2,
                 "coverFromY":1
-			},
+			}/*,
 			{
 				"name":"7用户中心",
 				"url":"#",
@@ -371,7 +371,7 @@ var list = [
                 "colCover":1,
                 "coverFromX":3,
                 "coverFromY":1
-			}
+			}*/
 		]
     },
     {
@@ -384,7 +384,7 @@ var list = [
         "spacing":5,
 		"items":[
 			{
-				"name":"0系统设置",
+				"name":"系统设置",
 				"url":"#",
 				"bg":"orange",
 				"cls":"sysset1",
@@ -394,7 +394,7 @@ var list = [
                 "coverFromY":0
 			},
 			{
-				"name":"0系统设置",
+				"name":"系统设置",
 				"url":"#",
 				"bg":"orange",
 				"cls":"sysset1",
@@ -404,7 +404,7 @@ var list = [
                 "coverFromY":0
 			},
 			{
-				"name":"1系统设置",
+				"name":"系统设置",
 				"url":"#",
 				"bg":"orange",
 				"cls":"sysset2",
@@ -414,7 +414,7 @@ var list = [
                 "coverFromY":0
 			},
 			{
-				"name":"2系统设置",
+				"name":"系统设置",
 				"url":"#",
 				"bg":"orange",
 				"cls":"sysset3",
@@ -432,7 +432,7 @@ var list = [
                 "colCover":1,
                 "coverFromX":2,
                 "coverFromY":1
-			}/*,
+			},
 			{
 				"name":"4系统设置",
 				"url":"#",
@@ -442,7 +442,11 @@ var list = [
                 "colCover":1,
                 "coverFromX":3,
                 "coverFromY":1
-			}*/
+			}
 		]
     }
 ]
+
+
+
+var items = ["数字电视","互动点播","我的应用","用户中心","系统设置"]
