@@ -18,7 +18,7 @@ function ListView(div, controller, focusViewConstructor){
 	//this.focusView = focusViewConstructor ? new focusViewConstructor(this) : new FocusView(this);
 	this.ctrl = controller;
 
-	this.needRepaintFocus = true;
+	this.needRepaintFocus = false;
 	this.needRepaintItems = true;
 	this.repaintItemsDirect = null;
 	this.needDescendKeyEvent = true;
@@ -114,8 +114,10 @@ ListView.prototype.painterList = function(isUp) {
 			var itemPostion = i + offset;
 			var dataPostion = i + base;
 			items[itemPostion] = ctrl.getListView(this, items[itemPostion], dataPostion);
+			
 			items[itemPostion].moveTo(startX + i * this.item_width, null, null, null);
 		}
+		items[1].addClass("active-list")
 	}
 }
 
@@ -126,13 +128,13 @@ ListView.prototype.focusMove = function() {
 	var len = this.ctrl.getCount();
 
 	var i;
-	var pos = this.selected - this.displaybase;
-
-	if (pos > -1 && pos < len && items[pos] !== undefined){
-		console.log(pos)
-		
+	var sel = this.selected + 1;
+	
+	for(i = 1; i < items.length;i++) {
+		items[i].removeClass("active-list")
 	}
-		
+	items[sel].addClass("active-list")
+	//console.log(items[sel])
 }
 
 ListView.prototype.setSelected = function(postion) {
@@ -159,12 +161,11 @@ ListView.prototype.onKeyEvent = function(keycode) {
 	var channelCount = ctrl.getCount();
 	if (keycode == 39) { //down
 		
-		
 		if (channelCount > 0) {
 			sel++;
 	
 			if (sel > channelCount - 1) {
-				sel = channelCount - 1;
+				sel = 0;
 			}
 			this.index = sel;
 		
@@ -195,7 +196,7 @@ ListView.prototype.onKeyEvent = function(keycode) {
 		
 		if (channelCount > 0) {
 			sel--;
-			if (sel < 0) sel = 0;
+			if (sel < 0) sel = channelCount - 1;
 			this.index = sel;
 			
 			if (sel > -1) {

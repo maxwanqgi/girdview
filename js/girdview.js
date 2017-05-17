@@ -1,6 +1,6 @@
 
 //GridView  包含5个menuview  父容器为div
-function GridView(div, controller) {
+function StackView(div, controller) {
 	View.call(this);
 	//this.focus = new FocusView();
 	this.ctrl = controller;
@@ -18,17 +18,17 @@ function GridView(div, controller) {
 	this.render();
 }
 
-GridView.prototype = new View();
+StackView.prototype = new View();
 
-GridView.prototype.setMenuMove = function(moveMenu) {
+StackView.prototype.setMenuMove = function(moveMenu) {
 	this.isMenuMove = moveMenu ? true : false;
 }
 
-GridView.prototype.setFocusMove = function(focuMenu) {
+StackView.prototype.setFocusMove = function(focuMenu) {
 	this.isFocusMove = focuMenu ? true : false;
 }
 
-GridView.prototype.startMove = function() {
+StackView.prototype.startMove = function() {
 	var w = parseInt(this.getStyle("width"));
 	var currIndex = this.currIndex;
 	var index = this.index;
@@ -36,44 +36,48 @@ GridView.prototype.startMove = function() {
 	var len = items.length;
 	var tag = items[currIndex];
 	var tag1 = items[index];
-	tag.getDiv().style.webkitTransitionDuration = "0.2s";
+	tag.setDuration(0.2);
 
 	if (index == 0 && currIndex == len - 1) {
 		tag.moveTo(-1 * w, null, null, null);
-		tag1.getDiv().style.webkitTransitionDuration = "0s";
+		tag1.setDuration(0);
 		tag1.moveTo(w, null, null, null);
+		clearTimeout();
 		setTimeout(function() {
-			tag1.getDiv().style.webkitTransitionDuration = "0.2s";
+			tag1.setDuration(0.2);
 			tag1.moveTo(0, null, null, null);
 		})
 	} else if (index == len - 1 && currIndex == 0) {
 		tag.moveTo(w, null, null, null);
-		tag1.getDiv().style.webkitTransitionDuration = "0s";
+		tag1.setDuration(0);
 		tag1.moveTo(w * -1, null, null, null);
+		clearTimeout();
 		setTimeout(function() {
-			tag1.getDiv().style.webkitTransitionDuration = "0.2s";
+			tag1.setDuration(0.2);
 			tag1.moveTo(0, null, null, null);
 		})
 	} else if (index > currIndex) { //向左移动
 		tag.moveTo(-1 * w, null, null, null);
-		tag1.getDiv().style.webkitTransitionDuration = "0s";
+		tag1.setDuration(0);
 		tag1.moveTo(w, null, null, null);
+		clearTimeout();
 		setTimeout(function() {
-			tag1.getDiv().style.webkitTransitionDuration = "0.2s";
+			tag1.setDuration(0.2);
 			tag1.moveTo(0, null, null, null);
 		})
 	} else if (index < currIndex) { //向右移动
 		tag.moveTo(w, null, null, null);
-		tag1.getDiv().style.webkitTransitionDuration = "0s";
+		tag1.setDuration(0);
 		tag1.moveTo(w * -1, null, null, null);
+		clearTimeout();
 		setTimeout(function() {
-			tag1.getDiv().style.webkitTransitionDuration = "0.2s";
+			tag1.setDuration(0.2);
 			tag1.moveTo(0, null, null, null);
 		})
 	}
 };
 
-GridView.prototype.moveToLeft = function() {
+StackView.prototype.moveToLeft = function() {
 	var items = this.items;
 	var len = items.length;
 	this.index--;
@@ -85,7 +89,7 @@ GridView.prototype.moveToLeft = function() {
 	this.currIndex = this.index;
 };
 
-GridView.prototype.moveToRight = function() {
+StackView.prototype.moveToRight = function() {
 	var items = this.items;
 	var len = items.length;
 	this.index++;
@@ -97,7 +101,7 @@ GridView.prototype.moveToRight = function() {
 	this.currIndex = this.index;
 }
 
-GridView.prototype.render = function() {
+StackView.prototype.render = function() {
 	var i;
 	var ctrl = this.ctrl;
 	var data = ctrl.data;
@@ -111,7 +115,7 @@ GridView.prototype.render = function() {
 	items[0].moveTo(0, null, null, null);
 }
 
-GridView.prototype.onkeyEvent = function(key) {
+StackView.prototype.onkeyEvent = function(key) {
 
 	var isMenuMove = this.isMenuMove;
 	var isFocusMove = this.isFocusMove;
@@ -130,7 +134,6 @@ GridView.prototype.onkeyEvent = function(key) {
 		}
 	} else if (key == 39) {
 		//right
-
 		if (isMenuMove == true && isFocusMove == false) {
 			this.moveToRight();
 		}
@@ -141,18 +144,18 @@ GridView.prototype.onkeyEvent = function(key) {
 
 		if (isMenuMove == false && isFocusMove == true) {
 
-			currMenu.onTopKey(this)
+			currMenu.onTopKey(this);
 		}
-
 	} else if (key == 40) {
 		//down
-		if (isMenuMove == false && isFocusMove == true) {
-			currMenu.onDownKey(this);
-		} else if (isMenuMove == true && isFocusMove == false) {
+		if (isMenuMove == true && isFocusMove == false) {
 			this.items[index].setFocusShow();
 			this.setMenuMove(false);
 			this.setFocusMove(true);
 		}
+		if (isMenuMove == false && isFocusMove == true) {
+			currMenu.onDownKey(this);
+		} 
 	} else {
 		if (key == 13) {
 			if (this.isFocusMove == true && this.isMenuMove == false) {
@@ -164,13 +167,13 @@ GridView.prototype.onkeyEvent = function(key) {
 };
 
 //每个菜单   父容器为gridview
-function MenuView(gridview, data) {
+function GridView(stackview, data) {
 	View.call(this);
 
 	this.spacing = data.spacing;
 	this.data = data;
 
-	var div = gridview.getDiv();
+	var div = stackview.getDiv();
 	var menuDiv = document.createElement("div");
 
 	menuDiv.className = "menu-list";
@@ -200,9 +203,9 @@ function MenuView(gridview, data) {
 
 }
 
-MenuView.prototype = new View();
+GridView.prototype = new View();
 
-MenuView.prototype.render = function() {
+GridView.prototype.render = function() {
 	var i;
 	var itemInfo = this.iteminfo;
 	var divItems = this.divItems;
@@ -214,7 +217,8 @@ MenuView.prototype.render = function() {
 	}
 };
 
-MenuView.prototype.onRightKey = function(gridview) {
+//焦点框响应right键
+GridView.prototype.onRightKey = function(stackview) {
 	var rowCount = this.rowCount;
 	var colCount = this.colCount;
 	var list = this.gridList;
@@ -227,28 +231,29 @@ MenuView.prototype.onRightKey = function(gridview) {
 			this.focusPos++;
 			if (this.focusPos % this.rowCount == 0 || list[this.focusPos] == undefined) {
 				this.setFocusHide();
-				gridview.setMenuMove(true);
-				gridview.setFocusMove(false);
+				stackview.setMenuMove(true);
+				stackview.setFocusMove(false);
 				this.focusPos = 0;
-				gridview.moveToRight();
+				stackview.moveToRight();
 			}
 			this.setfocusPos(this.focusPos);
 		}
 
 	} else {
-		//判断是否到了最右边，到了最右边继续按方向键右，menuview移动。
+		//判断是否到了最右边，到了最右边继续按方向键右，GridView移动。
 		if (this.focusPos % this.rowCount == 0 || list[this.focusPos] == undefined) {
 			this.setFocusHide();
-			gridview.setMenuMove(true);
-			gridview.setFocusMove(false);
+			stackview.setMenuMove(true);
+			stackview.setFocusMove(false);
 			this.focusPos = 0;
-			gridview.moveToRight();
+			stackview.moveToRight();
 		}
 		this.setfocusPos(this.focusPos);
 	}
 }
 
-MenuView.prototype.onLeftKey = function(gridview) {
+//焦点框响应left键
+GridView.prototype.onLeftKey = function(stackview) {
 	var rowCount = this.rowCount;
 	var colCount = this.colCount;
 	var list = this.gridList;
@@ -260,10 +265,10 @@ MenuView.prototype.onLeftKey = function(gridview) {
 			this.focusPos--;
 			if ((this.focusPos + 1) % this.rowCount == 0 || list[this.focusPos] == undefined) {
 				this.setFocusHide();
-				gridview.setMenuMove(true);
-				gridview.setFocusMove(false);
+				stackview.setMenuMove(true);
+				stackview.setFocusMove(false);
 				this.focusPos = 0;
-				gridview.moveToLeft();
+				stackview.moveToLeft();
 			}
 			this.setfocusPos(this.focusPos);
 		}
@@ -271,16 +276,17 @@ MenuView.prototype.onLeftKey = function(gridview) {
 	} else {
 		if ((this.focusPos + 1) % this.rowCount == 0 || list[this.focusPos] == undefined) {
 			this.setFocusHide();
-			gridview.setMenuMove(true);
-			gridview.setFocusMove(false);
+			stackview.setMenuMove(true);
+			stackview.setFocusMove(false);
 			this.focusPos = 0;
-			gridview.moveToLeft();
+			stackview.moveToLeft();
 		}
 		this.setfocusPos(this.focusPos);
 	}
 }
 
-MenuView.prototype.onDownKey = function(gridview) {
+//焦点框响应down键
+GridView.prototype.onDownKey = function(stackview) {
 	var rowCount = this.rowCount;
 	var colCount = this.colCount;
 	var list = this.gridList;
@@ -293,21 +299,20 @@ MenuView.prototype.onDownKey = function(gridview) {
 		for (var i = old.coverFromY; i < old.coverFromY + old.colCover; i++) {
 			this.focusPos += rowCount;
 			if (list[this.focusPos] == undefined) {
-				this.focusPos -= this.rowCount;
+				this.focusPos -= rowCount;
 			}
-
 			this.setfocusPos(this.focusPos);
 		}
 	} else {
 		if (list[this.focusPos] == undefined) {
-			this.focusPos -= this.rowCount;
+			this.focusPos -= rowCount;
 		}
 		this.setfocusPos(this.focusPos);
 	}
-
 }
 
-MenuView.prototype.onTopKey = function(gridview) {
+//焦点框响应top键
+GridView.prototype.onTopKey = function(stackview) {
 	var rowCount = this.rowCount;
 	var colCount = this.colCount;
 	var list = this.gridList;
@@ -317,11 +322,11 @@ MenuView.prototype.onTopKey = function(gridview) {
 
 	if (old === now) {
 		for (var i = old.coverFromY - 1; i > old.coverFromY - old.colCover; i--) {
-			this.focusPos -= this.rowCount;
+			this.focusPos -= rowCount;
 			if (this.focusPos < 0 || list[this.focusPos] == undefined) {
 				this.setFocusHide();
-				gridview.isMenuMove = true;
-				gridview.isFocusMove = false;
+				stackview.setMenuMove(true);
+				stackview.setFocusMove(false);
 				this.focusPos = 0;
 			}
 			this.setfocusPos(this.focusPos);
@@ -330,41 +335,29 @@ MenuView.prototype.onTopKey = function(gridview) {
 	} else {
 		if (this.focusPos < 0 || list[this.focusPos] == undefined) {
 			this.setFocusHide();
-			gridview.isMenuMove = true;
-			gridview.isFocusMove = false;
+			stackview.setMenuMove(true);
+			stackview.setFocusMove(false);
 			this.focusPos = 0;
 		}
 		this.setfocusPos(this.focusPos);
 	}
 }
 
-MenuView.prototype.onEnter = function() {
+GridView.prototype.onEnter = function() {
 	this.gridList[this.focusPos].onItemClicked()
 }
 
-MenuView.prototype.setFocusShow = function() {
+GridView.prototype.setFocusShow = function() {
 	this.focusView.show();
-	this.initFocus();
+	this.setfocusPos(0);
 };
 
-MenuView.prototype.setFocusHide = function() {
+GridView.prototype.setFocusHide = function() {
 	this.focusView.hide();
 	//this.initFocus();
 };
 
-MenuView.prototype.initFocus = function() {
-	var div = this.divItems[0];
-	var borderW = parseInt(this.focusView.getStyle("borderWidth"));
-	var start_left = div.left - borderW;
-	var start_top = div.top - borderW;
-	var start_width = div.width;
-	var start_height = div.height;
-
-	this.focusView.moveTo(start_left, null, start_top, null);
-	this.focusView.setSize(start_width, start_height)
-};
-
-MenuView.prototype.setfocusPos = function(index) {
+GridView.prototype.setfocusPos = function(index) {
 
 	var nextDiv = this.gridList[index];
 	var borderW = parseInt(this.focusView.getStyle("borderWidth"));
@@ -379,12 +372,14 @@ MenuView.prototype.setfocusPos = function(index) {
 
 }
 
-
+GridView.prototype.onItemClicked = function (gridview,iamgeview,position) {
+	
+}
 
 //单个选项 or 色块   父容器为menuview
-function ImageView(menuview, data) {
+function ImageView(gridview, data) {
 	View.call(this);
-	this.menuview = menuview;
+	this.gridview = gridview;
 
 	this.cls = data.cls;
 	this.url = data.url;
@@ -398,12 +393,12 @@ function ImageView(menuview, data) {
 	this.coverFromY = data.coverFromY;
 
 	this.divgrid = [];
-	var spacing = menuview.spacing;
-	var div = menuview.div;
+	var spacing = gridview.spacing;
+	var div = gridview.div;
 	var smalldiv = document.createElement("div");
 
-	var averageWidth = (menuview.width - (menuview.rowCount + 1) * spacing) / menuview.rowCount;
-	var averageHeight = (menuview.height - (menuview.colCount + 1) * spacing) / menuview.colCount - 25; //-25是为了底部剩余空间来添加倒影
+	var averageWidth = (gridview.width - (gridview.rowCount + 1) * spacing) / gridview.rowCount;
+	var averageHeight = (gridview.height - (gridview.colCount + 1) * spacing) / gridview.colCount - 25; //-25是为了底部剩余空间来添加倒影
 
 	this.width = averageWidth * this.rowCover + (this.rowCover - 1) * spacing;
 	this.height = averageHeight * this.colCover + (this.colCover - 1) * spacing;
@@ -413,7 +408,7 @@ function ImageView(menuview, data) {
 	smalldiv.className = this.cls;
 	smalldiv.innerHTML = this.txt;
 	smalldiv.style.background = this.bg;
-	
+	smalldiv.style.backgroundSize = "cover"
 	smalldiv.style.lineHeight = this.height + "px";
 	
 	this.div = smalldiv;
@@ -428,21 +423,21 @@ function ImageView(menuview, data) {
 ImageView.prototype = new View();
 
 ImageView.prototype.pushItems = function() {
-		var R = this.rowCover;
-		var C = this.colCover;
-		var startX = this.coverFromX;
-		var startY = this.coverFromY;
+	var R = this.rowCover;
+	var C = this.colCover;
+	var startX = this.coverFromX;
+	var startY = this.coverFromY;
 
-		var rowCount = this.menuview.rowCount;
-		var colCount = this.menuview.colCount;
+	var rowCount = this.gridview.rowCount;
+	var colCount = this.gridview.colCount;
 
-		for (var c = startY; c < startY + C; c++) {
-			for (var r = 0; r < R; r++) {
-				var a = c * rowCount + startX + r;
-				this.menuview.gridList[a] = this;
-			}
+	for (var c = startY; c < startY + C; c++) {
+		for (var r = 0; r < R; r++) {
+			var a = c * rowCount + startX + r;
+			this.gridview.gridList[a] = this;
 		}
 	}
+}
 	//
 ImageView.prototype.render = function() {
 	this.moveTo(this.left, null, this.top, null);
@@ -456,20 +451,20 @@ ImageView.prototype.onItemClicked = function() {
 }
 
 //焦点框类
-function FocusView(menuview) {
+function FocusView(gridview) {
 	View.call(this);
-	var div = menuview.getDiv();
+	var div = gridview.getDiv();
 	var focusDiv = document.createElement("div");
-	focusDiv.style.webkitTransitionDuration = "0.2s";
-	focusDiv.style.webkitTransitionTimingFunction = "linear";
+	/*focusDiv.style.webkitTransitionDuration = "0.2s";
+	focusDiv.style.webkitTransitionTimingFunction = "linear";*/
 	focusDiv.className = "focus-div";
 	this.div = focusDiv;
 	div.appendChild(this.div);
+	
+	this.setDuration(0.2)
 }
 
 FocusView.prototype = new View();
-
-
 
 
 
@@ -492,12 +487,12 @@ Controller.prototype = {
 		return itemview;
 	},
 	
-	getView: function(gridview, menuview, postion) {
+	getView: function(stackview, gridview, postion) {
 		var data = this.data[postion];
-		var menu = new this.viewConstructor(gridview, data);
-		menuview = menu;
+		var menu = new this.viewConstructor(stackview, data);
+		gridview = menu;
 
-		return menuview;
+		return gridview;
 	},
 
 	getCount: function() {

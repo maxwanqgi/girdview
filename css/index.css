@@ -20,6 +20,7 @@ body {
 	/*background-color: pink;*/
 	overflow: hidden;
 	position: relative;
+	line-height: 60px;
 }
 
 #nav_wraper .nav-list {
@@ -35,7 +36,17 @@ body {
 
 #nav_wraper .active-list{
 	color: yellow;
-	font-size: 30px;
+	font-size: 24px;
+	-webkit-animation:turn 4s infinite;
+}
+
+@-webkit-keyframes turn{
+	75%{
+		-webkit-transform: rotateY(0deg);
+	}
+	100%{
+		-webkit-transform: rotateY(360deg);
+	}
 }
 
 #menu_wraper {
@@ -55,12 +66,12 @@ body {
 
 #menu_wraper .menu-list div{
 
-	
-	background-size:cover ;
 	position: absolute;
 	color: white;
 	text-align: center;
 	font-size: 20px;
+	/*background-size:cover;*/
+
 }
 
 
@@ -71,4 +82,19 @@ body {
 	position: absolute;
 	background: none !important;
 	/*box-shadow: 0px 0px 20px #8B0000 ;*/
+}
+#menu_wraper .add-pic{
+    -webkit-box-reflect:below 5px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(0.8, transparent), to(white));
+}
+
+#menu_wraper .tv-pro{
+    -webkit-box-reflect:below 5px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(0.5, transparent), to(white));
+}
+
+#menu_wraper .tv-bro{
+    -webkit-box-reflect:below 5px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(0.5, transparent), to(white));
+}
+
+#menu_wraper .recive{
+    -webkit-box-reflect:below 5px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(0.5, transparent), to(white));
 }

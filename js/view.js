@@ -82,3 +82,20 @@ View.prototype.moveTo = function(l, r, t, b) {
 		return this.div;
 	}
 }
+
+
+View.prototype.setDuration = function (time) {
+	if (typeof this.div == "object") {
+		this.div.style.WebkitTransitionDuration = time + "s";
+
+	}
+}
+
+
+
+
+
+
+
+
+

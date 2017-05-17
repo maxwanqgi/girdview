@@ -12,11 +12,13 @@ function MenuItemView(listview, data) {
 	menuDiv.className = 'nav-list';
 	menuDiv.style.width = this.width + "px";
 	menuDiv.style.height = this.height + "px"
-
+	//menuDiv.style.webkitTransitionDuration = "0.2s" 
 	menuDiv.innerHTML = data;
 		
 	
 	this.div = menuDiv;
+	
+	this.setDuration(0.2)
 	
 	div.appendChild(menuDiv);
 }

@@ -23,7 +23,54 @@
 	<script src="js/data.js" type="text/javascript" charset="utf-8"></script>
 	<script src="js/view.js" type="text/javascript" charset="utf-8"></script>
 	<script src="js/listview.js" type="text/javascript" charset="utf-8"></script>
-	<script src="js/nav.js" type="text/javascript" charset="utf-8"></script>
 	<script src="js/girdview.js" type="text/javascript" charset="utf-8"></script>
-	<script src="js/pageinit.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/nav.js" type="text/javascript" charset="utf-8"></script>
+	
+	<script type="text/javascript">
+		function page_init() {
+			var ctrl = new Controller(GridView, list);
+			var stackview = new StackView(document.getElementById("menu_wraper"), ctrl);
+		
+			
+			var ctrl1 = new Controller(MenuItemView, items);
+			var listview = new ListView(document.getElementById("nav_wraper"),ctrl1,null);
+
+	/*		//1
+			listview.onItemClicked = function(){
+				
+				stackview.setVisiblePage(1);				
+				
+			}
+			
+			//1
+			stackview.onPageChange = function(curr,that){
+					
+				Grid page =	stackview.getPage(that);
+				
+				page.getSelected();
+				
+				listView.setSelected(curr);			
+			}
+		
+			//n
+			gridview.onItemClicked = function(){
+					
+			}*/
+				
+			document.onkeydown = function(e) {
+				var key = e.keyCode;
+				
+				stackview.onkeyEvent(key);
+				
+			
+				
+				if (stackview.isFocusMove == false && stackview.isMenuMove == true) {
+					listview.onKeyEvent(key)
+				}
+				
+			}
+		}
+		
+		page_init();
+	</script>
 </html>
