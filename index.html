@@ -29,11 +29,12 @@
 	<script type="text/javascript">
 		function page_init() {
 			var ctrl = new Controller(GridView, list);
-			var stackview = new StackView(document.getElementById("menu_wraper"), ctrl);
-		
-			
-			var ctrl1 = new Controller(MenuItemView, items);
-			var listview = new ListView(document.getElementById("nav_wraper"),ctrl1,null);
+			var stackview = new StackView(document.getElementById("menu_wraper"), ctrl);	
+	      
+			var gridview = stackview.items[stackview.index];
+
+			var ctrl2 = new Controller(MenuItemView, items);
+			var listview = new ListView(document.getElementById("nav_wraper"),ctrl2,null);
 
 	/*		//1
 			listview.onItemClicked = function(){
@@ -57,6 +58,19 @@
 					
 			}*/
 				
+			listview.onItemClicked = function () {
+				
+			}
+			
+			stackview.onPageChange = function (curr,that) {
+				
+				listview.setSelected(curr);
+			}
+			
+			gridview.onItemClicked = function () {
+				
+			}
+			
 			document.onkeydown = function(e) {
 				var key = e.keyCode;
 				

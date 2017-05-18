@@ -159,7 +159,7 @@ ListView.prototype.onKeyEvent = function(keycode) {
 	var items = this.items;
 	var old_sel = sel;
 	var channelCount = ctrl.getCount();
-	if (keycode == 39) { //down
+	if (keycode == 39) { 
 		
 		if (channelCount > 0) {
 			sel++;
