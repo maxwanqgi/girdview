@@ -1,6 +1,7 @@
 function View() {
 
 	this.div = null;
+	this.focus = false;
 
 }
 
@@ -9,12 +10,27 @@ View.prototype.getDiv = function() {
 }
 
 View.prototype.onkeyEvent = function(keycode) {
-
+	
 };
 
 View.prototype.setSelected = function() {
-
+	
 };
+
+
+View.prototype.changeFocus = function(focus) {
+	this.focus = focus;
+	
+};
+
+View.prototype.isFocus = function() {
+	return this.focus;
+};
+
+View.prototype.onFocusChange = function(focus) {
+	
+};
+
 
 View.prototype.setVisible = function(visible) {
 	this.div.style.display = visible ? "block" : "none";
@@ -94,8 +110,7 @@ View.prototype.setDuration = function (time) {
 
 
 
-
-
+//
 
 
 

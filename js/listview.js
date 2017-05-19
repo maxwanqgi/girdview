@@ -78,7 +78,7 @@ ListView.prototype.painterList = function(isUp) {
 		clearTimeout(timer);
 		timer = setTimeout(function () {
 			items[seeker].setVisible(true);
-		},duration)
+		},duration);
 		this.repaintItemsDirect = null;
 
 	} else if (isUp === false) { //按键为方向键上，items向下移动
@@ -117,7 +117,7 @@ ListView.prototype.painterList = function(isUp) {
 			
 			items[itemPostion].moveTo(startX + i * this.item_width, null, null, null);
 		}
-		items[1].addClass("active-list")
+		items[1].addClass("active-list");
 	}
 }
 
@@ -142,7 +142,6 @@ ListView.prototype.setSelected = function(postion) {
 }
 
 
-
 ListView.prototype.render = function() {
 	if (this.needRepaintFocus) {
 		this.focusMove();
@@ -159,8 +158,8 @@ ListView.prototype.onKeyEvent = function(keycode) {
 	var items = this.items;
 	var old_sel = sel;
 	var channelCount = ctrl.getCount();
-	if (keycode == 39) { 
-		
+
+	if (keycode == 39) { 		
 		if (channelCount > 0) {
 			sel++;
 	
@@ -182,7 +181,6 @@ ListView.prototype.onKeyEvent = function(keycode) {
 					this.needRepaintItems = false;
 					this.repaintItemsDirect = null;
 				}
-
 				this.render();
 			}
 
@@ -190,6 +188,7 @@ ListView.prototype.onKeyEvent = function(keycode) {
 			this.needRepaintItems = true;
 			this.onItemSelected(this, items[itemPositon], sel, items[itemPositon - 1], old_sel);
 		}
+		
 
 	} else if (keycode == 37) { 
 		
@@ -218,8 +217,10 @@ ListView.prototype.onKeyEvent = function(keycode) {
 			var itemPositon = sel - this.displaybase + (this.needRepaintItems && sel > this.displaybase + parseInt(this.displaycount / 2) ? 2 : 1);
 			this.needRepaintItems = true;
 			this.onItemSelected(this, items[itemPositon], sel, items[itemPositon + 1], old_sel);
-
+			
+			
 		}
+
 
 	} else {
 
@@ -233,7 +234,10 @@ ListView.prototype.onKeyEvent = function(keycode) {
 
 			this.onItemClicked(this, item, sel);
 		}
+		
 	}
+	
+	
 }
 
 ListView.prototype.onItemClicked = function(listview, itemview, postion) {

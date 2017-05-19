@@ -31,57 +31,62 @@
 			var ctrl = new Controller(GridView, list);
 			var stackview = new StackView(document.getElementById("menu_wraper"), ctrl);	
 	      
-			var gridview = stackview.items[stackview.index];
+			var gridview = stackview.items[stackview.selected];
+			console.log(stackview)
 
 			var ctrl2 = new Controller(MenuItemView, items);
 			var listview = new ListView(document.getElementById("nav_wraper"),ctrl2,null);
 
-	/*		//1
-			listview.onItemClicked = function(){
-				
-				stackview.setVisiblePage(1);				
-				
-			}
+
 			
-			//1
-			stackview.onPageChange = function(curr,that){
-					
-				Grid page =	stackview.getPage(that);
-				
-				page.getSelected();
-				
-				listView.setSelected(curr);			
-			}
-		
-			//n
-			gridview.onItemClicked = function(){
-					
-			}*/
-				
-			listview.onItemClicked = function () {
-				
-			}
 			
-			stackview.onPageChange = function (curr,that) {
-				
-				listview.setSelected(curr);
-			}
-			
-			gridview.onItemClicked = function () {
+			listview.changeFocus(true);
+
+			/*gridview.onItemClicked = function () {
 				
 			}
-			
+			*/
 			document.onkeydown = function(e) {
 				var key = e.keyCode;
 				
-				stackview.onkeyEvent(key);
-				
-			
-				
-				if (stackview.isFocusMove == false && stackview.isMenuMove == true) {
-					listview.onKeyEvent(key)
+				console.log("listview.isFocus is  " + listview.isFocus() );
+				console.log("stackview.isFocus is  " + stackview.isFocus() );
+
+				if(stackview.isFocus())
+				{
+					console.log("stack.onkeyEvent  " + key );
+					var accept = stackview.onkeyEvent(key);
+					//var isUp = true;//key
+					if(!accept && key == 38)
+					{
+						stackview.changeFocus(false);
+						listview.changeFocus(true);
+					}
 				}
-				
+				else if(listview.isFocus())
+				{
+					console.log("listview.onkeyEvent  " + key );
+					var accept = listview.onKeyEvent(key);
+					//console.log(accept);
+					var isDown = true;//key
+					if(!accept && key == 40)
+					{
+						
+						gridview.setFocusShow();
+						stackview.changeFocus(true);
+
+						listview.changeFocus(false);
+					}
+				}
+			   
+//				var accpet = listview.onKeyEvent(key);
+//				console.log("listview.onkeyevent is  " + accpet );
+//				if(accpet)
+//				{
+//					//下
+//					stackview.changeFocus(true);
+//					listview.changeFocus(false);
+//				}	
 			}
 		}
 		
