@@ -237,7 +237,17 @@ ListView.prototype.onKeyEvent = function(keycode) {
 		
 	}
 	
+	return true;
+}
+
+
+ListView.prototype.setFocusItem = function (curr) {
+	var items = this.items;
 	
+	for(var i = 1;i < items.length;i ++) {
+		items[i].removeClass("active-list");
+	}
+	items[curr].addClass("active-list")
 }
 
 ListView.prototype.onItemClicked = function(listview, itemview, postion) {

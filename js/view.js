@@ -80,7 +80,6 @@ View.prototype.removeClass = function (cls) {
 	}	
 }
 
-
 View.prototype.moveTo = function(l, r, t, b) {
 	if (typeof this.div === "object") {
 		if (l || l === 0) {

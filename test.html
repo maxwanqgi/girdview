@@ -3,65 +3,25 @@
 <head>
 	<meta charset="UTF-8" />
 	<title>Document</title>
-	<style media="screen">
-		#test{
-			position: absolute;
-			width:100px;
-			height:100px;
-			background: red;
-			top:0;left:0
-		}
+	
+	<style type="text/css">
+		
 	</style>
-	<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 </head>
 <body>
-	<div id="test"></div>
+	<div class="test">
+		
+	
+		<input type="checkbox" class="box1"/>
+		<input type="checkbox" class="box2"/>
+		<input type="checkbox" class="box3"/>
+	</div>
+	<div>&quot;</div>
 </body>
-<script src="http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js"></script>
-<script>
-    //alert(remote_ip_info.province + '\n' + remote_ip_info.city)
-
-	var test = document.getElementById("test")
-	/*function a (callback) {
-		test.style.webkitTransition = "left 0s";
-		test.style.left = 600+"px";
-		callback()
-	}
+<script type="text/javascript">
 	
-
-	
-	function b () {
-		
-		setTimeout(function () {
-			test.style.webkitTransition = "left 0.5s"
-			test.style.left = 300+"px";
-		})
-		
-	}
-	
-	document.onclick = function () {
-		a(b)
-	}*/
-	
-	
-	function a() {
-		test.style.webkitTransition = "left 0s";
-		test.style.left = 600+"px";
-		setTimeout(function () {
-			test.style.webkitTransition = "left 0.5s"
-			test.style.left = 300+"px";
-		})
-	}
-	
-	document.onclick = function () {
-		a();
-		
-		
-	}
-	
-
-	
+	var box2 = document.getElementsByClassName("test")[0].getElementsByTagName("input")[1];
+	box2.checked = "checked"
 	
 </script>
-
 </html>
