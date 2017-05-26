@@ -27,7 +27,7 @@ StackView.prototype.render = function() {
 	for (i = 0; i < menuCount; i++) {
 		items[i] = ctrl.getGridView(this, items[i], i);
 		items[i].moveTo(l, null, null, null);
-		items[i].addClass("menu-list" + i)
+//		items[i].addClass("menu-list" + i)
 	}
 	items[0].moveTo(0, null, null, null);
 }
@@ -115,8 +115,13 @@ StackView.prototype.moveToRight = function() {
 	this.currIndex = this.selected;
 };
 
-StackView.prototype.setVisiblePage = function(old_sel,new_sel) {
+StackView.prototype.setVisiblePage = function(new_sel) {
+	
+	var old_sel = this.getCurrItemIndex();
+	/*console.log(old_sel)
+	console.log(new_sel)*/
 	var items = this.items;
+	
 	var old_item = items[old_sel];
 	var new_item = items[new_sel];
 	var len = items.length;
@@ -161,7 +166,8 @@ StackView.prototype.setVisiblePage = function(old_sel,new_sel) {
 		})
 	}
 	
-	this.selected = new_sel;
+	this.currIndex = new_sel;
+	this.selected = this.currIndex
 };
 
 StackView.prototype.getPage = function(postion) {
@@ -183,21 +189,25 @@ StackView.prototype.onkeyEvent = function(key) {
 		return true;
 	}
 	else{
-		if (key == 37) {
+		if (key == keycode.key_left) {
 			//left
 			this.moveToLeft();
 		}
 		
-		if (key == 39) {
+		if (key == keycode.key_right) {
 			//right    
 			this.moveToRight();
 		}
 		
 	}
-	
-	
 	return false;
 };
+
+StackView.prototype.getCurrItemIndex = function () {
+	//return this.selected;
+	return this.currIndex;
+}
+
 
 //每个菜单   父容器为gridview     
 function GridView(stackview, data) {
@@ -259,7 +269,7 @@ GridView.prototype.setFocusHide = function() {
 GridView.prototype.setfocusPos = function(index) {
 
 	var nextDiv = this.imageList[index];
-	var borderW = parseInt(this.focusView.getStyle("borderWidth"));
+	var borderW = parseInt(this.focusView.getStyle("borderLeftWidth"));
 	var w = nextDiv.width;
 	var h = nextDiv.height;
 	var l = nextDiv.left - borderW;
@@ -275,7 +285,7 @@ GridView.prototype.onKeyEvent = function(key) {
 	var list = this.imageList;
 	var old;
 	var now;
-	if (key == 39) { //right
+	if (key == keycode.key_right) { //right
 		old = list[this.focusPos];
 		this.focusPos++;
 		now = list[this.focusPos];
@@ -308,7 +318,7 @@ GridView.prototype.onKeyEvent = function(key) {
 		}
 	
 	}
-	else if (key == 37) { //left
+	else if (key == keycode.key_left) { //left
 		old = list[this.focusPos];
 		this.focusPos--;
 		now = list[this.focusPos];
@@ -338,7 +348,7 @@ GridView.prototype.onKeyEvent = function(key) {
 		}
 	}
 	
-	else if (key == 38) { //top
+	else if (key == keycode.key_up) { //top
 		old = list[this.focusPos];
 		this.focusPos -= rowCount;
 		now = list[this.focusPos];
@@ -369,7 +379,7 @@ GridView.prototype.onKeyEvent = function(key) {
 
 	}
 
-	else if (key == 40) { //down
+	else if (key == keycode.key_down) { //down
 		if (this.hasFocus == false) {
 			this.setFocusShow();
 			this.hasFocus = true
@@ -399,7 +409,7 @@ GridView.prototype.onKeyEvent = function(key) {
 		}
 	}
 	
-	else if (key == 13) {
+	else if (key == keycode.key_enter) {
 		this.imageList[this.focusPos].onItemClicked();
 	}
 	
@@ -410,6 +420,7 @@ GridView.prototype.onKeyEvent = function(key) {
 GridView.prototype.onItemClicked = function(gridview, iamgeview, position) {
 
 }
+
 
 GridView.prototype.setSelected = function() {
 

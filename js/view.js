@@ -1,9 +1,15 @@
+/*var KeyEvent = {
+	KeyEvent_UP :38,
+	KeyEvent_DOWN :40
+}
+	*/
 function View() {
 
 	this.div = null;
 	this.focus = false;
 
 }
+
 
 View.prototype.getDiv = function() {
 	return this.div;
@@ -45,8 +51,13 @@ View.prototype.hide = function() {
 }
 
 View.prototype.getStyle = function(attr) {
-	if (typeof this.div === "object")
-		return getComputedStyle(this.div, false)[attr];
+	if (typeof this.div === "object"){
+		if (this.div.currentStyle) {
+			return this.div.currentStyle.attr;
+		}else {
+			return getComputedStyle(this.div, false)[attr];
+		}
+	}	
 }
 
 View.prototype.setSize = function(w, h) {
@@ -74,8 +85,8 @@ View.prototype.addClass = function (cls) {
 View.prototype.removeClass = function (cls) {
 	if (typeof this.div === "object") {
 		if(this.hasclass(cls)) {
-			var reg1 = new RegExp('(\\s|^)' + cls + '(\\s|$)');
-			this.div.className = this.div.className.replace(reg1,'');
+			var reg = new RegExp('(\\s|^)' + cls + '(\\s|$)');
+			this.div.className = this.div.className.replace(reg,'');
 		}
 	}	
 }
@@ -94,15 +105,17 @@ View.prototype.moveTo = function(l, r, t, b) {
 		if (b || b === 0) {
 			this.div.style.bottom = b + "px";
 		}
-		return this.div;
+		
 	}
 }
 
 
-View.prototype.setDuration = function (time) {
+View.prototype.setDuration = function (duration) {
 	if (typeof this.div == "object") {
-		this.div.style.WebkitTransitionDuration = time + "s";
-
+		this.div.style.transitionDuration = duration + "s";
+		this.div.style.WebkitTransitionDuration = duration + "s";
+		this.div.style.msTransitionDuration = duration + "s";
+		this.div.style.MozTransitionDuration = duration + "s";
 	}
 }
 
@@ -113,3 +126,14 @@ View.prototype.setDuration = function (time) {
 
 
 
+var keycode = {
+	key_left : 37,
+	key_right : 39,
+	key_up : 38,
+	key_down : 40,
+	key_enter : 13,
+	key_space : 32
+}
+
+
+console.log(keycode.key_down)

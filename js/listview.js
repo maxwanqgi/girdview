@@ -104,7 +104,7 @@ ListView.prototype.painterList = function(isUp) {
 		clearTimeout(timer);
 		timer = setTimeout(function () {
 			items[seeker].setVisible(true);
-		},duration)
+		},duration);
 		this.repaintItemsDirect = null;
 
 	} else {
@@ -248,6 +248,7 @@ ListView.prototype.setFocusItem = function (curr) {
 		items[i].removeClass("active-list");
 	}
 	items[curr].addClass("active-list")
+	
 }
 
 ListView.prototype.onItemClicked = function(listview, itemview, postion) {
@@ -256,6 +257,10 @@ ListView.prototype.onItemClicked = function(listview, itemview, postion) {
 
 ListView.prototype.onItemSelected = function(listview, itemview_now, postion_now, itemview_old, postion_old) {
 
+}
+
+ListView.prototype.getCurrentIndex = function () {
+	return this.selected;
 }
 
 //项目去继承itemview，根据实际情况去生成对应的itemview。

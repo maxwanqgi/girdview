@@ -231,7 +231,7 @@ var list = [
                 "coverFromX":2,
                 "coverFromY":0
 			},
-			/*{
+			{
 				"name":"我的应用",
 				"url":"#",
 				"bg":"cyan",
@@ -240,7 +240,7 @@ var list = [
                 "colCover":1,
                 "coverFromX":3,
                 "coverFromY":0
-			},*/
+			},
 			{
 				"name":"我的应用",
 				"url":"#",

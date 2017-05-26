@@ -12,7 +12,7 @@
 		<div id="main">
 			<!-- list容器 -->
 			<div id="nav_wraper">
-				<!---->
+				<!-- -->
 			</div>
 			<!--stackview 容器-->
 			<div id="menu_wraper">
@@ -31,31 +31,25 @@
 			var ctrl = new Controller(GridView, list);
 			var stackview = new StackView(document.getElementById("menu_wraper"), ctrl);
 
-			stackview.onPageChange = function() {
-
-			}
-
 			var ctrl2 = new Controller(MenuItemView, items);
 			var listview = new ListView(document.getElementById("nav_wraper"), ctrl2, null);
 
 			listview.changeFocus(true);
 			stackview.changeFocus(false);
-			var len = stackview.items.length;
 			
+			//var len = ctrl.getCount();
+	
 			document.onkeydown = function(e) {
-				
-			/*	console.log("listview.isFocus is  " + listview.isFocus() + "---46");   
-				console.log("stackview.isFocus is  " + stackview.isFocus() + "---47"); */
 
 				var key = e.keyCode;
 				
-				
 				if (stackview.isFocus()) {
 					
-					var accept = stackview.onkeyEvent(key);
-					listview.setFocusItem(stackview.selected + 1);
-
+					var grid_index = stackview.getCurrItemIndex() + 1;
 					
+					var accept = stackview.onkeyEvent(key);
+					
+					listview.setFocusItem(grid_index);
 
 					if (!accept) {
 						
@@ -68,30 +62,27 @@
 				if (listview.isFocus()) {
 
 					var accept = listview.onKeyEvent(key);
+					var list_index = listview.getCurrentIndex();
 					
 					if (accept) {
-						if (key == 37) {
-							stackview.setVisiblePage(listview.selected + 1 > len - 1 ? 0 : listview.selected + 1, listview.selected);
-
-						}
-						if (key == 39) {
-							stackview.setVisiblePage(listview.selected - 1 < 0 ? len - 1 : listview.selected - 1, listview.selected);
-
-						}
-						if (key == 40) {
-
+						
+						stackview.setVisiblePage(list_index);
+						
+						if (key == keycode.key_down) {
+							
+							stackview.onkeyEvent(keycode.key_down);
 							listview.changeFocus(false);
 							stackview.changeFocus(true);
-							stackview.onkeyEvent(40)
+							
 						}
 					}
 				}
-				
-				
 			}
 		}
 
 		page_init();
 	</script>
-
+	
+	
+	
 </html>
